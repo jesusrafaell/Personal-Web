@@ -6,6 +6,9 @@
     height: 100.5vh;
     text-align: center;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;   
 }
 
 .form{
@@ -138,7 +141,7 @@ select, option {
 
 @media screen and (max-width: 1200px){
     .contact-bg{
-        height: 110vh;
+        height: 130vh;
     }
     .spinner2{
         margin-left: 35%;
@@ -146,6 +149,9 @@ select, option {
 }
 
 @media screen and (max-width: 900px){
+    .contact-bg {
+        height: 100%;
+    }
     #survey-form{
         width: 80%;
     }

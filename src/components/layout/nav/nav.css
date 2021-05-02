@@ -84,11 +84,24 @@ nav{
         position: absolute;
         cursor: pointer;
         right: 5%;
-        top: 6%;
+        top: 7%;
         transform: translate(-5%, -50%);
         z-index: 2;
         transition: all 0.7s ease;
     }
+
+    @media screen and (min-height: 800px){
+        .hamburger{
+            top: 5%;
+        }
+    }
+    @media screen and (max-height: 600px){
+        .hamburger{
+            top: 9%;
+        }
+    }
+
+
     .nav-links{
         position: fixed;
         background: #131418;

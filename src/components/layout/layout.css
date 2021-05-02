@@ -103,9 +103,8 @@ footer{
 
 @media screen and (max-width: 800px){
     .fa svg{
-        width: 30px;
-        height: 30px;
-        margin-left: 2em;
+        width: 20px;
+        height: 20px;
         transform: scale(1.7);
         transition: 0.4s linear;
         fill: #fff;
