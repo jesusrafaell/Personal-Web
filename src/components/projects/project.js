@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React  from 'react'
 import linkIcon from '../../images/icons/link.png'
 
 const Project = ({project}) => {
@@ -10,7 +10,9 @@ const Project = ({project}) => {
       <td className="Lenguage">{project.language}</td>
       <td className="Create">{project.created_at.substr(0,10)}</td>
       {project.info && project.info[1] ? (
-         <td className="URL"><a href={project.info[1]} target="_blank" rel="noopener noreferrer"><img src={linkIcon}/></a></td>
+         <td className="URL">
+            <a href={project.info[1]} target="_blank" rel="noopener noreferrer"><img src={linkIcon} alt="link"/></a>
+         </td>
       ):(
          <td className="URL">X</td>
       )}

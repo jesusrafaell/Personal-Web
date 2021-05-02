@@ -13,11 +13,7 @@ const Projects = () => {
         await fetch(url)
           .then(res => res.json())
           .then(repos => {
-            repos.map(pro => {
-              if(pro.description != null){ 
-                  pro.info = pro.description.split("&")
-               }
-            })
+            repos.map(pro => pro.description && (pro.info = pro.description.split("&")))
             saveData(repos)
           })
       }catch(e){
@@ -48,7 +44,7 @@ const Projects = () => {
       saveData(sortData)
       saveOrder('da')
     }else{
-      const sortData = [...data].sort((a,b) => b.info[0].toLowerCase() < b.info[0].toLowerCase() ? 1 : -1)
+      const sortData = [...data].sort((a,b) => a.info[0].toLowerCase() < b.info[0].toLowerCase() ? 1 : -1)
       saveData(sortData)
       saveOrder('ia')
     }
@@ -95,7 +91,7 @@ const Projects = () => {
       if(order[1] === a){
         return ('orderDe')
       }
-    }else if(order[0] == 'i'){
+    }else if(order[0] === 'i'){
       if(order[1] === a){
         return ('orderIn')
       }

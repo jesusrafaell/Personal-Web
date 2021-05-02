@@ -1,7 +1,6 @@
 nav{
     height: 6rem;
     background-color: #131418;
-    /*opacity: 75%;*/
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     z-index: 10;
@@ -85,7 +84,7 @@ nav{
         position: absolute;
         cursor: pointer;
         right: 5%;
-        top: 5%;
+        top: 6%;
         transform: translate(-5%, -50%);
         z-index: 2;
         transition: all 0.7s ease;
@@ -94,8 +93,8 @@ nav{
         position: fixed;
         background: #131418;
         height: 100vh;
-        margin-left: 50%;
-        width: 50%;
+        margin-left: 0%;
+        width: 100%;
         flex-direction: column;
         clip-path: circle(50px at 90% -20%);
         -webkit-clip-path: circle(50px at 90% -10%);
@@ -107,6 +106,7 @@ nav{
         -webkit-clip-path: circle(1000px at 90% -10%);
         pointer-events: all;
     }
+
     .nav-links li{
         opacity: 0;
     }
@@ -142,7 +142,7 @@ nav{
     transform: rotate(-45deg) translate(-5px,6px);
 }
 .toggle .line2{
-    transition: all 0.7s ease;
+    transition: all 0.4s ease;
     width:0;
 }
 .toggle .line3{

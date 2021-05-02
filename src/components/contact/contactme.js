@@ -60,15 +60,15 @@ const  ContactMe = () => {
               <h1 id="title">Send me an email</h1>
             </div>
             <form id="survey-form" onSubmit={sendEmail}>
-              <label for="name" id="name-label" className="uno">Name</label>
-              <input name="name" type="text" id="name" placeholder="Enter your name" value={name} onChange={handleOnChange} requiered/>
-              <label for="email" id="email-label" className="uno">Email</label>
-              <input name="email" type="email" id="email" placeholder="Enter your email"  value={email} onChange={handleOnChange} requiered/>
-              <label for="subject" id="text" className="uno">Subject</label>
+              <label htmlFor="name" id="name-label" className="uno">Name</label>
+              <input name="name" type="text" id="name" placeholder="Enter your name" value={name} onChange={handleOnChange} required/>
+              <label htmlFor="email" id="email-label" className="uno">Email</label>
+              <input name="email" type="email" id="email" placeholder="Enter your email"  value={email} onChange={handleOnChange} required/>
+              <label htmlFor="subject" id="text" className="uno">Subject</label>
               <input 
-                name="subject" type="text" id="subject" placeholder="Enter your Subject" value={subject} onChange={handleOnChange} requiered/>
-              <label for="dropdown" id="dropdown-label" class="uno">Reason</label>
-                <select name="reason" value={reason} onChange={handleOnChange} id="dropdown"> 
+                name="subject" type="text" id="subject" placeholder="Enter your Subject" value={subject} onChange={handleOnChange} required/>
+              <label htmlFor="dropdown" id="dropdown-label" className="uno">Reason</label>
+                <select name="reason" value={reason} onBlur={handleOnChange} onChange={handleOnChange} id="dropdown"> 
                     <option value="hello">Just, Hi</option>
                     <option value="social">Social Media</option>
                     <option value="web">Web Development</option>
