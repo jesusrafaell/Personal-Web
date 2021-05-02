@@ -3,7 +3,11 @@ import { Link } from 'gatsby'
 import './nav.css'
 
 const Nav = ({ siteTitle }) => { 
-    const [y, setY] = useState(window.scrollY)
+    
+    const windowGlobal = typeof window !== 'undefined' && window
+
+    const [y, setY] = useState(windowGlobal.scrollY)
+
     const [open, saveOpen] = useState(false)
 
     const handleNav = useCallback( e => {
@@ -20,12 +24,12 @@ const Nav = ({ siteTitle }) => {
     )
 
     useEffect(() => {
-        setY(window.scrollY)
-        window.addEventListener("scroll", handleNav)
+        setY(windowGlobal.scrollY)
+        windowGlobal.addEventListener("scroll", handleNav)
         return () => {
-            window.removeEventListener("scroll", handleNav)
+            windowGlobal.removeEventListener("scroll", handleNav)
         }
-    },[handleNav])
+    },[handleNav, windowGlobal])
 
     const handleClick = () => {
         navDisplay()
