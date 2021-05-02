@@ -6,7 +6,7 @@ const Main = () => {
   return(
   <div className="index-bg">
     <div className = 'index'>
-      <h1 className="titlemain">Welcome!</h1>
+      <h1 className="titlemain">Welcome</h1>
       <div className="overlay"></div>
     </div>  
   </div>
