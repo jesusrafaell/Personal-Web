@@ -75,8 +75,7 @@ nav{
 
     /*header { display:flex; }*/
     .navtitle{
-        margin-top: 3vw;
-        margin-left: 4vw;
+        margin-left: 1rem;
     }
 
     nav{
@@ -101,12 +100,18 @@ nav{
     }
     @media screen and (max-height: 800px){
         .hamburger{
-            top: 5%;
+            top: 6%;
         }
+
     }
     @media screen and (max-height: 700px){
         .hamburger{
-            top: 10%;
+            top: 7%;
+        }
+    }
+    @media screen and (max-height: 500px){
+        .hamburger{
+            top: 11%;
         }
     }
 
