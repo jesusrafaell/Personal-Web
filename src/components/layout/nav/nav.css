@@ -62,7 +62,7 @@ nav{
 .hamburger div{
     width: 30px;
     height:3px;
-    background: #f2f5f7;
+    background: #f7f7f7;
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -74,6 +74,10 @@ nav{
 @media screen and (max-width: 800px){
 
     /*header { display:flex; }*/
+    .navtitle{
+        margin-top: 3vw;
+        margin-left: 4vw;
+    }
 
     nav{
         position: flex;
@@ -83,24 +87,28 @@ nav{
         display:block;
         position: absolute;
         cursor: pointer;
-        right: 5%;
+        right: 8%;
         top: 7%;
         transform: translate(-5%, -50%);
         z-index: 2;
         transition: all 0.7s ease;
     }
 
-    @media screen and (min-height: 800px){
+    @media screen and (min-height: 1000px){
+        .hamburger{
+            top: 6%;
+        }
+    }
+    @media screen and (max-height: 800px){
         .hamburger{
             top: 5%;
         }
     }
-    @media screen and (max-height: 600px){
+    @media screen and (max-height: 700px){
         .hamburger{
-            top: 9%;
+            top: 10%;
         }
     }
-
 
     .nav-links{
         position: fixed;
@@ -114,10 +122,18 @@ nav{
         transition: all 1s ease-out;
         pointer-events: none;
     }
+    
     .nav-links.open{
         clip-path: circle(1000px at 90% -10%);
         -webkit-clip-path: circle(1000px at 90% -10%);
         pointer-events: all;
+        height: 100%;;
+    }
+
+    @media screen and (min-height: 1000px){
+        .nav-links.open{
+            height: 950px;;
+        }
     }
 
     .nav-links li{
