@@ -13,6 +13,7 @@
 
 .form{
     background: linear-gradient( 115deg, rgba(0, 0, 40, 0.4), rgba(55, 91, 255, 0.2));
+    height: 100%;
     margin: 0 auto;
     width: 100%;
 }
@@ -140,16 +141,13 @@ select, option {
 /*Spinner*/
 
 @media screen and (max-width: 1200px){
-    .contact-bg{
-        height: 130vh;
-    }
     .spinner2{
         margin-left: 35%;
     }
 }
 
-@media screen and (max-width: 900px){
-    .contact-bg {
+@media screen and (max-width: 950px){
+    .contact-bg{
         height: 100%;
     }
     #survey-form{
