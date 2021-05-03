@@ -117,6 +117,10 @@
         float: left;
     }
 
+    .nav div.main_list li a {
+        display: none;
+    }
+
     .nav div.open{
         transition: all 0.5s ease .3s;
         height: 18rem;
@@ -125,9 +129,14 @@
         width: 100%;
     }
 
+    .nav div.open li a{
+        display: flex;
+    }
+
     .navlinks{
         flex-direction: column;
     }
+
 
 
     .navlinks li{
