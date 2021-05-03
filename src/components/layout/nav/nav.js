@@ -51,8 +51,6 @@ const Nav = ({siteTitle, location}) => {
         navT.classList.toggle('active')
     }
 
-
-
     const classNav = `nav ${location}`
 
     return(

@@ -1,9 +1,9 @@
 .nav {
     width: 100%;
     height: 6rem;
-    position: fixed;
     line-height: 65px;
     text-align: center;
+    position: fixed;
 }
 
 .nav div.navtitle {
@@ -72,6 +72,11 @@
 }
 
 @media screen and (min-width:900px) {
+    /*debug problem nav with table project*/
+    .software{
+        position: absolute;
+    }
+
     .software div.navtitle a{
         color: #000;
     }
@@ -79,6 +84,7 @@
     .software div.main_list ul li a{
         color: #000;
     }
+
 }
 
 
@@ -89,7 +95,6 @@
 .software{
     background: none;
 }
-
 
 @media screen and (max-width:900px) {
     .nav{
@@ -112,9 +117,9 @@
     .nav div.main_list {
         width: 100%;
         height: 0;
+        opacity: 0;
         background-color: black;
-        transition: all 0.5s ease 0.7s;
-        float: left;
+        transition: all 0.5s ease 0.3s;
     }
 
     .nav div.main_list li a {
@@ -122,22 +127,25 @@
     }
 
     .nav div.open{
+        opacity: 1;
         transition: all 0.5s ease .3s;
-        height: 18rem;
         border-bottom-left-radius: 3em;
         border-bottom-right-radius: 3em;
-        width: 100%;
+        height: 18rem;
+        width: 105%;
+        margin: 0;
     }
 
     .nav div.open li a{
         display: flex;
+        margin: 0;
+        padding: 0;
     }
 
     .navlinks{
         flex-direction: column;
+        align-items: center;
     }
-
-
 
     .navlinks li{
         transition: all 0.5s ease .3s;
@@ -165,10 +173,10 @@
 
     @media screen and (max-height:450px) {
         .nav div.open{
-            height: 40vh;
+            height: 30vh;
         }
         .navlinks li{
-            margin-top: -2vh;
+            margin-top: -5vh;
         }
     }
 
