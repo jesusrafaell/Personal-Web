@@ -4,7 +4,7 @@
     margin-bottom: -2rem;
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 900px){
   .info{
     display: block;
     padding: 2rem;
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
 
   .photo {
     display: none;
@@ -129,7 +129,6 @@
     justify-content: center;
     flex-direction: column;   
     height: 900px;
-    margin-top: -6rem;
   }
 
   .info{

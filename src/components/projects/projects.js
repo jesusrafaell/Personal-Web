@@ -100,39 +100,41 @@ const Projects = () => {
 
   return(
     <div className="software-bg">
-      <h3>Repository</h3>
-      {data.length > 0 ? (
-        <table className="table-scroll small-first-col">
-          <thead>
-            <tr>
-              <th className={classOn('n')} onClick={sortByName} scope="col">Title</th>
-              <th className={classOn('a')} onClick={sortByAbout} scope="col">About</th>
-              <th className={classOn('l')} onClick={sortByLanguage} scope="col">Language</th>
-              <th className={classOn('c')} onClick={sortByDate} scope="col">Create</th>
-              <th className={classOn('d')} onClick={sortByDeploy} scope="col">Deploy</th>
-            </tr>
-          </thead>
-          <tbody className="body-half-screen"> 
-            {data.map(pro => (
-                <Project
-                  key={pro.id}
-                  project={pro}
-                />
-              ))}
-          </tbody>
-        </table>
-      ):(
-        <div className="spinner">
-          <div className="sk-chase">
-            <div className="sk-chase-dot"></div>
-            <div className="sk-chase-dot"></div>
-            <div className="sk-chase-dot"></div>
-            <div className="sk-chase-dot"></div>
-            <div className="sk-chase-dot"></div>
-            <div className="sk-chase-dot"></div>
+      <div className="sofware-table">
+        <h3>Repository</h3>
+        {data.length > 0 ? (
+          <table className="table-scroll small-first-col">
+            <thead>
+              <tr>
+                <th className={classOn('n')} onClick={sortByName} scope="col">Title</th>
+                <th className={classOn('a')} onClick={sortByAbout} scope="col">About</th>
+                <th className={classOn('l')} onClick={sortByLanguage} scope="col">Language</th>
+                <th className={classOn('c')} onClick={sortByDate} scope="col">Create</th>
+                <th className={classOn('d')} onClick={sortByDeploy} scope="col">Deploy</th>
+              </tr>
+            </thead>
+            <tbody className="body-half-screen"> 
+              {data.map(pro => (
+                  <Project
+                    key={pro.id}
+                    project={pro}
+                  />
+                ))}
+            </tbody>
+          </table>
+        ):(
+          <div className="spinner">
+            <div className="sk-chase">
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+            </div>
           </div>
-        </div>
-        )}
+          )}
+      </div>
     </div>
   )
 }
