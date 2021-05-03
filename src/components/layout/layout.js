@@ -8,7 +8,7 @@ import Header from './header'
 import Footer from './footer'
 import './layout.css'
 
-const Layout = ({ children }) => {
+const Layout = ({children,location}) => {
 
   return (
     <>
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href={icon}/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
       </Helmet>
-      <Header siteTitle={`JesusRafaell`} />
+      <Header siteTitle={`JesusRafaell`} location={location} />
       <main>{children}</main>
       <Footer/>
     </>

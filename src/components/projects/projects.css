@@ -1,5 +1,5 @@
 .software-bg{
-  background: lightgray;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +8,6 @@
 }
 
 .sofware-table{
-  margin-top: 3rem;
   background: white;
   width: 100%;
 }
@@ -184,6 +183,10 @@ h3{
 
   .software-bg{
     height: 100%;
+  }
+
+  .sofware-table{
+    margin-top: 8rem;
   }
 
   h3{

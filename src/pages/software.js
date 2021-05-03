@@ -3,7 +3,7 @@ import Layout from '../components/layout/layout'
 import Projects from '../components/projects/projects'
 
 const Software = () => (
-  <Layout>
+  <Layout location='software'>
     <Projects />
   </Layout>
 )

@@ -2,8 +2,8 @@ import React, {useState, useEffect, useCallback} from 'react'
 import { Link } from 'gatsby'
 import './nav.css'
 
-const Nav = ({ siteTitle }) => { 
-    
+const Nav = ({siteTitle, location}) => { 
+
     const windowGlobal = typeof window !== 'undefined' && window
 
     const [y, setY] = useState(windowGlobal.scrollY)
@@ -12,7 +12,7 @@ const Nav = ({ siteTitle }) => {
 
     const handleNav = useCallback( e => {
         const window = e.currentTarget;
-        if(y < window.scrollY){
+        if(y < window.scrollY || y > window.scrollY){
             if(open){
                 navDisplay()
                 saveOpen(false)
@@ -42,41 +42,42 @@ const Nav = ({ siteTitle }) => {
 
     const navDisplay =() => {
         const navT = document.querySelector(".navTrigger")
-        const nav = document.querySelector(".bglinks")
         const links = document.querySelectorAll(".navlinks li")
-
-        nav.classList.toggle("open")
+        const main = document.querySelector(".mainListDiv")
+        main.classList.toggle("open")
         links.forEach(link => {
             link.classList.toggle("fade")
         });
         navT.classList.toggle('active')
     }
 
+
+
+    const classNav = `nav ${location}`
+
     return(
-        <nav className="nav">
-            <div className="bglinks">
-                <div className="navtitle">
-                    <Link to="/">JesusRafaell</Link>
-                </div>
-                <div className="mainListDiv main_list">
-                    <ul className="navlinks">
-                        <li><Link to="/about"
-                            activeClassName="selected"
-                        >About</Link></li>
-                        <li><Link to="/software"
-                            activeClassName="selected"
-                        >Software</Link></li>
-                        <li><Link to="/contact"
-                            activeClassName="selected"
-                        >Contact</Link></li>
-                    </ul>
-                </div>
-                <span className="navTrigger" onClick={handleClick}>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
+        <nav className={classNav}>
+            <div className="navtitle">
+                <Link to="/" activeStyle={{ cursor: "default" }}>{siteTitle}</Link>
             </div>
+            <div className="mainListDiv main_list">
+                <ul className="navlinks">
+                    <li><Link to="/about"
+                        activeClassName="selected"
+                    >About</Link></li>
+                    <li><Link to="/software"
+                        activeClassName="selected"
+                    >Software</Link></li>
+                    <li><Link to="/contact"
+                        activeClassName="selected"
+                    >Contact</Link></li>
+                </ul>
+            </div>
+            <span aria-hidden="true" className="navTrigger" onClick={handleClick}>
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
         </nav>
     )
 }  
