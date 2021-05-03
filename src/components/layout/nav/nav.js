@@ -62,7 +62,7 @@ const Nav = ({ siteTitle }) => {
                     <ul className="navlinks">
                         <li><Link to="/about"
                             activeClassName="selected"
-                        >About Me</Link></li>
+                        >About</Link></li>
                         <li><Link to="/software"
                             activeClassName="selected"
                         >Software</Link></li>
