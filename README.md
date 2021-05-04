@@ -1,8 +1,8 @@
 ## Personal-Website
 
-1.  **Create with Gatsby** <p align="left">
+1.  **Create with Gatsby**
 
-  Gatsbyjs version of my personal website. This is still in early development and is not the live version of the site.
+    Gatsbyjs version of my personal website. This is still in early development and is not the live version of the site.
 
 2.  **Start developing.**
 
