@@ -43,6 +43,7 @@ h3{
     width:100%;
     overflow-y: scroll;
     overflow-x: none;
+    box-shadow: 2px 2px 2px #ccc;
   }
 
   .table-scroll tbody{
@@ -59,6 +60,7 @@ h3{
 
   .table-scroll thead tr th{
     border-left: .1px solid rgba(0, 0, 0, .05);
+    transition: all 0.3s ease 0.1s;
   }
 
   .table-scroll tbody tr{
@@ -114,11 +116,12 @@ h3{
   }
 
   .orderDe{
-    border-top: 3px solid #686868;
-    padding: 2px;
+    border-top: 2px solid #686868;
+    border-radius: .3rem;
   }
   .orderIn{
-    border-bottom: 3px solid #686868;
+    border-bottom: 2px solid #686868;
+    border-radius: .3rem;
   }
 
   /*Spinner*/
