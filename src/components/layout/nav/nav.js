@@ -33,11 +33,11 @@ const Nav = ({siteTitle, location}) => {
 
     const handleClick = () => {
         navDisplay()
-        if(open){
+        if(open)
             saveOpen(false)
-        }else{
+        else
             saveOpen(true)
-        }
+        
     }
 
     const navDisplay =() => {
@@ -47,7 +47,7 @@ const Nav = ({siteTitle, location}) => {
         main.classList.toggle("open")
         links.forEach(link => {
             link.classList.toggle("fade")
-        });
+        })
         navT.classList.toggle('active')
     }
 
