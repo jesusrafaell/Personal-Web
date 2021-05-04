@@ -51,7 +51,7 @@ footer{
     align-items: center;
     justify-content: center;
     flex-direction: column;   
-    height: 20em;
+    height: 25em;
 }
 
 .sociallinks {
@@ -66,8 +66,8 @@ footer{
 .fa svg{
     margin: 1rem;
     padding: 1rem;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 2rem;
     padding: 2px;
     transition: 0.4s ease-in;
@@ -101,10 +101,13 @@ footer{
     background: rgb(58, 89, 152);
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
+    .fa{
+        padding: 1vw;
+    }
     .fa svg{
-        width: 20px;
-        height: 20px;
+        width: 5vw;
+        height: 5vw;
         transform: scale(1.7);
         transition: 0.4s linear;
         fill: #fff;

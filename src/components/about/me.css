@@ -1,17 +1,26 @@
 .about-bg{
     background-color: lightgray;
     height: 100vh;
-    margin-bottom: -2rem;
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 901px){
   .info{
-    display: block;
-    padding: 2rem;
-    top: 30%;
-    left: 10%;
-    right: 53%;
-    text-align: center;
+      top: 30%;
+      left: 10vw;
+      right: 42vw;
+      display: block;
+      text-align: center;
+      position: absolute;
+      margin-top: 25px;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 6rem;
+      height: 22em;
+      text-align: center;
+      border-radius: 1px;
+      transition: all .5s;
+      box-shadow: 25px 60px 20px #607D8B;
+      opacity: 1;
+      transition: all .8s cubic-bezier(0.645, 0.045, 0.355, 1.2);
   }
 
   .infoname {
@@ -34,8 +43,8 @@
 
 
   .photo img{
-    width: 350px;
-    height: 580px;
+    width: 20vw;
+    height: 50vh;
     object-fit: cover;
     box-shadow: 10px 15px 25px 0 rgba(0,0,0,.2);
     display: block;
@@ -77,18 +86,7 @@
   .photo:hover .glow-wrap{
     margin-top: 0;
   }
-  .info{
-    position: absolute;
-    margin-top: 25px;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 6rem;
-    height: 250;
-    text-align: center;
-    border-radius: 1px;
-    transition: all .5s;
-    box-shadow: 25px 60px 20px #607D8B;
-  }
-
+  
   .info h2:hover{ 
     text-shadow: 20px 20px 20px #37474F;
   }
@@ -96,20 +94,41 @@
   .info:hover{
     box-shadow: none;
     background: rgba(255, 255, 255, 0);
-  }
-
+ 
+}
 
   .descrip p{
     text-align: center;
     font-family: karla, serif;
     font-weight: 300;
-    position: absolute;
+    margin-top: 3rem;
+    position: relative;
     color: black;
     top: 80%;
     left: 50%;
     transform: translate(-50%, -65%);
     font-size: 18px;
   }
+
+  .hiddeninfo{
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0);
+    margin-left: 10vw;
+    width: 60vw;
+  }
+
+  .hiddeninfo h2{
+    text-shadow: 20px 20px 20px #37474F;
+  }
+  .photo{
+    opacity: 1;
+    transition: all .8s cubic-bezier(0.645, 0.045, 0.355, 1.2);
+  }
+  .disablephoto{
+    opacity: 0;
+    transform: translateY(-600px);
+  }
+
 }
 
 @media screen and (max-width: 900px){

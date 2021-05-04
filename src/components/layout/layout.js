@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import icon from '../../images/icon-32x32.ico'
@@ -17,9 +17,9 @@ const Layout = ({children,location}) => {
         <link rel="icon" href={icon}/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
       </Helmet>
-      <Header siteTitle={`JesusRafaell`} location={location} />
+      <Header siteTitle={`JesusRafaell`} location={location}/>
       <main>{children}</main>
-      <Footer/>
+      <Footer location={location}/>
     </>
   )
 }
