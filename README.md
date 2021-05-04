@@ -14,7 +14,7 @@
 
    * Install nodejs on your machine
    * cd directory, type "npm install" for dependencies
-   * Type
+   * Type:
   ```shell
     gatsby develop
    ```
