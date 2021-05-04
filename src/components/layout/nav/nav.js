@@ -71,7 +71,6 @@ const Nav = ({siteTitle, location}) => {
         }
         if(windowGlobal.scrollY > 200){
             const title = document.querySelector('.titlemain')
-            console.log(title)
             if(title!== null ) {
                 const hidden = document.querySelector(".disabletitle")
                 if (!hidden) {
