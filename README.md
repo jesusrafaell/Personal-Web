@@ -1,17 +1,24 @@
 ## Personal-Website
 
-1.  **Create with Gatsby**
-
-    Gatsbyjs version of my personal website. This is still in early development and is not the live version of the site.
-
-2.  **Start developing.**
-
-    Need gatsby-cli
-
+   This is still in early development and is not the live version of the site. 
+    
+## Create with Gatsby
+    Gatsby is an open-source static website generator (SSG) that is based on the frontend development framework React and makes use of Webpack and GraphQL technology.
+    
+   La CLI de Gatsby está disponible a través de npm y se instala globalmente al ejecutar.
     ```shell
-    gatsby develop
+    npm install -g gatsby-cli.
     ```
+  
+## Start developing
 
-3.  **Deploy.**
+   * Install nodejs on your machine
+   * cd directory, type "npm install" for dependencies
+  ```shell
+    gatsby develop
+   ```
+   * Got to http://localhost:8000  
+
+## Deploy.
 
     https://jesusrafaell.netlify.app/
