@@ -82,10 +82,12 @@ const Nav = ({siteTitle, location}) => {
 
 
     const navDisplay =() => {
-        const navT = document.querySelector(".navTrigger")
-        const links = document.querySelectorAll(".navlinks li")
+        const nav = document.querySelector(".nav")
         const main = document.querySelector(".mainListDiv")
+        const links = document.querySelectorAll(".navlinks li")
+        const navT = document.querySelector(".navTrigger")
         main.classList.toggle("open")
+        nav.classList.toggle("opennav")
         links.forEach(link => {
             link.classList.toggle("fade")
         })

@@ -46,7 +46,7 @@
     color: #fff;
     line-height: 65px;
     font-size: 1.2em;
-    padding-left: 3rem;
+    padding: 1rem;
     font-family: "Gravity-Regular";
 }
 
@@ -77,6 +77,10 @@
         position: absolute;
     }
 
+    .nav div.main_list ul li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
     .software div.navtitle a{
         color: #000;
     }
@@ -104,6 +108,11 @@
 
     .index,.about{
         background:none;
+        transition: all 0.4s linear .3s;
+    }
+
+    .opennav{
+        background-color: black;
     }
 
     .navTrigger {
@@ -119,7 +128,8 @@
         height: 0;
         opacity: 0;
         background-color: black;
-        transition: all 0.5s ease 0.3s;
+        transition: all 0.3s ease .3s;
+        transform: translateY(-200px);
     }
 
     .nav div.main_list li a {
@@ -128,12 +138,12 @@
 
     .nav div.open{
         opacity: 1;
-        transition: all 0.5s ease .3s;
         border-bottom-left-radius: 3em;
         border-bottom-right-radius: 3em;
-        height: 18rem;
-        width: 105%;
+        height: 20rem;
+        width: 100%;
         margin: 0;
+        transform: translateY(0px);
     }
 
     .nav div.open li a{
@@ -164,19 +174,14 @@
 
     @media screen and (max-height:600px) {
         .nav div.open{
-            height: 40vh;
+            height: 7rem;
         }
         .navlinks li{
-            margin-top: 0;
+            margin-top: 0vh;
         }
-    }
-
-    @media screen and (max-height:450px) {
-        .nav div.open{
-            height: 30vh;
-        }
-        .navlinks li{
-            margin-top: -5vh;
+        .navlinks{
+            flex-direction: row;
+            align-items: left;
         }
     }
 
