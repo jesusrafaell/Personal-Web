@@ -1,5 +1,5 @@
 .contact-bg{
-    background: url('../images/contactme.jpg');
+    background: #ffffff;
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
@@ -11,7 +11,7 @@
 }
 
 .form{
-    background: linear-gradient( 115deg, rgba(0, 0, 40, 0.4), rgba(55, 91, 255, 0.2));
+    background: linear-gradient( 115deg, rgba(0, 0, 40, 0.4), rgba(20, 91, 255, 0.5));
     height: 100%;
     width: 100%;
     margin: 5% auto;

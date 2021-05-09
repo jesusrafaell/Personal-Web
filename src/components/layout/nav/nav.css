@@ -4,6 +4,8 @@
     line-height: 65px;
     text-align: center;
     position: fixed;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
 
 .nav div.navtitle {
@@ -42,11 +44,12 @@
 }
 
 .nav div.main_list ul li a {
+    border-radius: 1rem;
+    transition: all 0.3s linear 0.1s;
     text-decoration: none;
     color: #fff;
     line-height: 65px;
     font-size: 1.2em;
-    padding: 1rem;
     font-family: "Gravity-Regular";
 }
 
@@ -77,6 +80,9 @@
         position: absolute;
     }
 
+    .nav div.main_list ul li a {
+        padding: .8rem;
+    }
     .nav div.main_list ul li a:hover {
       background: rgba(255, 255, 255, 0.2);
     }
@@ -87,6 +93,11 @@
 
     .software div.main_list ul li a{
         color: #000;
+    }
+
+    .affix {
+        height: 4rem;
+        padding-top: 0.1em;
     }
 
 }
@@ -111,10 +122,6 @@
         transition: all 0.4s linear .3s;
     }
 
-    .opennav{
-        background-color: black;
-    }
-
     .navTrigger {
         display: block;
     }
@@ -128,7 +135,7 @@
         height: 0;
         opacity: 0;
         background-color: black;
-        transition: all 0.3s ease .3s;
+        transition: all 0.5s ease .3s;
         transform: translateY(-200px);
     }
 
@@ -396,3 +403,4 @@
     }
 
 }
+

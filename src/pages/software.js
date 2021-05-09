@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Layout from '../components/layout/layout'
-import Project from '../components/projects/project'
+import Project from '../components/project'
 import '../styles/software.css'
 
 const Software = () => {
