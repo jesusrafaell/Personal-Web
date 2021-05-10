@@ -1,35 +1,23 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React from 'react'
 import Layout from '../components/layout/layout'
 import '../styles/index.css'
+import useScroll from '../hooks/useScroll'
 
 const IndexPage = () => {
 
-  const windowGlobal = typeof window !== 'undefined' && window
+  const { scrollY } = useScroll()
 
-  const [hidden, setHidden] = useState(false)
-
-  const handleScroll = useCallback( () => {
-    if(windowGlobal.scrollY > 100){
-      setHidden(true)
-    } else{
-      setHidden(false)
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]
-  )
-
-  useEffect(() => {
-      windowGlobal.addEventListener("scroll", handleScroll)
-      return () => {
-          windowGlobal.removeEventListener("scroll", handleScroll)
-      }
-  },[handleScroll, windowGlobal])
+  const checkHidden = (ref) => {
+    if(scrollY > ref)
+      return true
+    else 
+      return false
+  }
 
   return(
     <Layout location='index'>
       <div className="indexPage">
-        <h1 className={`titlemain ${ hidden && 'disabletitle' }`}>Welcome</h1>
+        <h1 className={`titlemain ${ checkHidden(100) && 'disabletitle' }`}>Welcome</h1>
         <div className="overlay"></div>
       </div>
     </Layout>

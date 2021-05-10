@@ -55,8 +55,9 @@
   }
 }
   .disabletitle{
-    transform: translateY(-600px);
+    /*transform: translateY(-600px);*/
     opacity: 0;
+    margin-top: -600px;
   }
 /***end Titile main*****/
 

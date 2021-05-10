@@ -1,35 +1,18 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, {useState } from 'react'
 import { Link } from 'gatsby'
+import useScroll from '../../../hooks/useScroll'
 import './nav.css'
 
 const Nav = ({siteTitle, location}) => { 
 
-    const windowGlobal = typeof window !== 'undefined' && window
-
-    const [scrollmode, setScrollMode] = useState(false)
     const [navOpen, setnavOpen] = useState(false)
+    
+    const { scrollY } = useScroll()
 
-    const handleNav = useCallback( () => {
-        if(windowGlobal.scrollY > 100){
-            setScrollMode(true) 
-        }else{
-            setScrollMode(false)
-        }
-        //close menunav when scroll
-        setnavOpen(false) 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        },[]
-    )
-
-    useEffect(() => {
-        windowGlobal.addEventListener("scroll", handleNav)
-        return () => {
-            windowGlobal.removeEventListener("scroll", handleNav)
-        }
-    },[handleNav, windowGlobal])
-
+    const [scrollYOld, setscrollYOld] = useState(scrollY);
 
     const handleClick = () => {
+        setscrollYOld(scrollY)
         if(navOpen)
             setnavOpen(false)
         else
@@ -48,15 +31,29 @@ const Nav = ({siteTitle, location}) => {
         }else{
             return;
         }
-        windowGlobal.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
+        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
+    }
+
+    const handleNavOpen = () => {
+        if(navOpen){
+            if(scrollYOld === scrollY){
+                return true
+            }else{
+                setscrollYOld(scrollY)
+                setnavOpen(false)
+                return false
+            }
+        }else{
+            return false
+        }
     }
 
     return(
-        <nav className={`nav ${location} ${ scrollmode && 'affix'}`}>
+        <nav className={`nav ${location} ${ scrollY > 100 && 'affix'}`}>
             <div className="navtitle">
                 <Link to="/" activeStyle={{ cursor: "default" }} onClick={(e) => handleClickScroll('title',e)}>{siteTitle}</Link>
             </div>
-            <div className={`mainListDiv main_list ${ navOpen && 'open' }`}>
+            <div className={`mainListDiv main_list ${ handleNavOpen() && 'open' }`}>
                 <ul className="navlinks">
                     <li className={`${ navOpen && 'fade'}`} >
                         <Link to="/about"
