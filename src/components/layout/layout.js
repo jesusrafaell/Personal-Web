@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import icon from '../../images/icon-32x32.ico'
+
 //import { useStaticQuery, graphql } from "gatsby"
 
 import Header from './header'
 import Footer from './footer'
+import icon from '../../images/icon-32x32.ico'
 import './layout.css'
 
 const Layout = ({children,location}) => {

@@ -1,9 +1,9 @@
 import React, {useState } from 'react'
-import { Link } from 'gatsby'
 import useScroll from '../../../hooks/useScroll'
+import TransitionLink from 'gatsby-plugin-transition-link'
 import './nav.css'
 
-const Nav = ({siteTitle, location}) => { 
+const Nav = ({siteTitle, location, transitionStatus}) => { 
 
     const [navOpen, setnavOpen] = useState(false)
     
@@ -19,14 +19,14 @@ const Nav = ({siteTitle, location}) => {
             setnavOpen(true)
     }
 
-    const handleClickScroll= (op, e) =>{
-        if(location === 'index' && op === 'title'){
+    const handleClickScroll= (e) =>{
+        if(location === 'index' && e.target.name === 'index'){
             e.preventDefault()
-        }else if(location === 'about' && op === 'about'){
+        }else if(location === 'about' && e.target.name === 'about'){
             e.preventDefault()
-        }else if(location === 'software' && op === 'software'){
+        }else if(location === 'software' && e.target.name === 'software'){
             e.preventDefault()
-        }else if(location === 'contact' && op === 'contact'){
+        }else if(location === 'contact' && e.target.name === 'contact'){
             e.preventDefault()
         }else{
             return;
@@ -51,27 +51,55 @@ const Nav = ({siteTitle, location}) => {
     return(
         <nav className={`nav ${location} ${ scrollY > 100 && 'affix'}`}>
             <div className="navtitle">
-                <Link to="/" activeStyle={{ cursor: "default" }} onClick={(e) => handleClickScroll('title',e)}>{siteTitle}</Link>
+                <TransitionLink 
+                    to="/" 
+                    name="index"
+                    activeStyle={{ cursor: "default" }} 
+                    onClick={handleClickScroll}
+                    exit={{
+                        length: 1
+                    }}
+                    entry={{}}
+                >{siteTitle}</TransitionLink>
             </div>
             <div className={`mainListDiv main_list ${ handleNavOpen() && 'open' }`}>
                 <ul className="navlinks">
                     <li className={`${ navOpen && 'fade'}`} >
-                        <Link to="/about"
-                            onClick={(e) => handleClickScroll('about',e)}
+                        <TransitionLink
+                            to="/about"
+                            name="about"
+                            onClick={handleClickScroll}
                             activeClassName="selected"
-                        >About</Link>
+                            exit={{
+                                length: 1
+                            }}
+                            entry={{}}
+                        >About Me
+                        </TransitionLink>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
-                        <Link to="/software"
-                            onClick={(e) => handleClickScroll('software',e)}
+                        <TransitionLink
+                            to="/software"
+                            name="software"
+                            onClick={handleClickScroll}
                             activeClassName="selected"
-                        >Software</Link>
+                            exit={{
+                                length: 1
+                            }}
+                            entry={{}}
+                        >Software</TransitionLink>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
-                        <Link to="/contact"
-                            onClick={(e) => handleClickScroll('contact',e)}
+                        <TransitionLink 
+                            to="/contact"
+                            name="contact"
+                            onClick={handleClickScroll}
                             activeClassName="selected"
-                        >Contact</Link>
+                            exit={{
+                                length: 1
+                            }}
+                            entry={{}}
+                        >Contact</TransitionLink>
                     </li>
                 </ul>
             </div>
