@@ -1,75 +1,35 @@
 .indexPage{
-  background: url('../images/indexbg.jpg');
-  background-position: top center;
-  background-attachment: scroll;
-  background-size: cover;
-  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/indexbg.jpg);
+  background-position: center top;
+  background-size:cover;
   align-items: center;
   justify-content: center;
   flex-direction: column;   
-  height: 100.5vh;
+  text-align:center;
 }
 
 
 /*Titile*/
-@media screen and (min-width: 900px){
   .titlemain {
+    transition: all 0.7s linear 0.2s;
+    text-align: center;
+    padding-top: 35vh;
+    width: 100%;
+    height: 40%;
     font-size: 9rem;
     color: white ;
-    transform: translateY(-600px);
-    animation: 0.5s slideIn ease-in-out forwards 0.5s;
-    z-index: 10;
-    opacity: 1;
-    position: absolute;
-    transition: 1s;
+    opacity: 0.8
   }
 
-  .titlemain:before {
-      content: '';
-      width: 0%;
-      height: 10px;
-      background-color: white;
-      position: absolute;
-      bottom: -10px;
-      animation: .5s underline ease-in-out forwards 1s;
-      mix-blend-mode: screen;
-  }
-
-  @keyframes skewBg {
-    0% {
-      transform: scale(.5);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes underline {
-    100% {
-      width: 100%;
-    }
-  }
-  @keyframes slideIn {
-    100% {
-      transform: translateY(0px);
-    }
-  }
-}
   .disabletitle{
-    /*transform: translateY(-600px);*/
     opacity: 0;
-    margin-top: -600px;
+    transform: translateY(-500px);
   }
-/***end Titile main*****/
-
-@media screen and (max-width: 1200px){
-  .titlemain{
-    font-size: 6rem;
-  }
-}
 
 @media screen and (max-width: 900px){
   .titlemain{
-      font-size: 4rem;
-      transition: 1s;
+      font-size: 5rem;
     }
 }

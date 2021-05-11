@@ -1,0 +1,40 @@
+@media screen and (min-width: 900px){
+
+    .pages{
+      width: 100%;
+      height: 120vh;
+    }
+
+    .page{
+        transition: 1s ease-in;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .page-exited{
+        transform: scale(0.8) translate(90rem,6rem); 
+    }
+
+    .page-entering {
+        transform: scale(0.5) translate(50rem,6rem); 
+    }
+
+    .page-entered {
+        transform: scale(1) translate(0rem,6rem); 
+    }
+
+
+
+
+    .nav {
+        background: black;
+        display: absolute;
+    }
+    .nav-about{
+        background:gray;
+    }
+    .nav-software{
+        background:white;
+    }
+
+}

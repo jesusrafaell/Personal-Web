@@ -1,16 +1,16 @@
 .nav {
     width: 100%;
-    height: 6rem;
+    height: 3.5em;
+    position: fixed;
     line-height: 65px;
     text-align: center;
-    position: fixed;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .nav div.navtitle {
     float: left;
-    width: -5%;
+    width: auto;
     height: auto;
     padding-left: 4em;
 }
@@ -44,13 +44,13 @@
 }
 
 .nav div.main_list ul li a {
-    border-radius: 1rem;
-    transition: all 0.3s linear 0.1s;
     text-decoration: none;
     color: #fff;
     line-height: 65px;
     font-size: 1.2em;
+    border-radius: 1rem;
     font-family: "Gravity-Regular";
+    transition: all 0.3s linear 0.1s;
 }
 
 .nav div.main_list ul li a:hover {
@@ -76,48 +76,52 @@
 
 @media screen and (min-width:900px) {
     /*debug problem nav with table project*/
-    .software{
-        position: absolute;
-    }
-
     .nav div.main_list ul li a {
         padding: .8rem;
     }
+
     .nav div.main_list ul li a:hover {
       background: rgba(255, 255, 255, 0.2);
     }
 
-    .software div.navtitle a{
+    .nav-software div.navtitle a{
         color: #000;
     }
 
-    .software div.main_list ul li a{
+    .nav-software div.main_list ul li a{
         color: #000;
     }
 
     .affix {
-        height: 4rem;
+        background: black;
+        height: 2.5rem;
         padding-top: 0.1em;
     }
 
 }
 
 
-.about,.contact {
+.nav-about,.nav-contact {
     background-color: black;
 }
 
-.software{
+.nav-software{
     background: none;
+    position: absolute;
+}
+
+.nav-about{
+    position: absolute;
 }
 
 @media screen and (max-width:900px) {
     .nav{
         /*position: absolute;*/
+        position: fixed;
         background-color: black;
     }
 
-    .index,.about{
+    .nav-index,.nav-about{
         background:none;
         transition: all 0.4s linear .3s;
     }
@@ -127,16 +131,26 @@
     }
     .nav div.navtitle {
         margin-left: -2em;
-        margin-top: 3px;
+    }
+
+    .nav-index div.main_list,
+    .nav-about div.main_list {
+        border-top-left-radius: 2em;
+    }
+
+    .nav-index div.open,
+    .nav-about div.open{
+        border-top-left-radius: 5em;
     }
 
     .nav div.main_list {
         width: 100%;
-        height: 0;
-        opacity: 0;
+        height: 20rem;
         background-color: black;
-        transition: all 0.5s ease .3s;
-        transform: translateY(-200px);
+        transition: all 0.8s ease .2s;
+        transform: translateX(100vw);
+        border-bottom-left-radius: 2em;
+        opacity: 1;
     }
 
     .nav div.main_list li a {
@@ -144,13 +158,10 @@
     }
 
     .nav div.open{
-        opacity: 1;
-        border-bottom-left-radius: 3em;
-        border-bottom-right-radius: 3em;
+        border-bottom-left-radius: 5em;
         height: 20rem;
-        width: 100%;
-        margin: 0;
-        transform: translateY(0px);
+        opacity: 1;
+        transform: translateX(0);
     }
 
     .nav div.open li a{
@@ -180,11 +191,26 @@
     }
 
     @media screen and (max-height:600px) {
-        .nav div.open{
-            height: 7rem;
+
+
+        .nav div.main_list {
+            height: 5rem;
         }
+
+        .nav div.open{
+            height: 5rem;
+            border-bottom-left-radius: 2em;
+            align-items: center;
+        }
+
         .navlinks li{
             margin-top: 0vh;
+            margin-left: 0.2em;
+        }
+         
+        .nav div.main_list ul li a{
+            font-size: 1.1em;
+            margin-right: 0;
         }
         .navlinks{
             flex-direction: row;
@@ -401,6 +427,4 @@
     100% {
         transform: translateY(-9px) rotate(135deg);
     }
-
 }
-

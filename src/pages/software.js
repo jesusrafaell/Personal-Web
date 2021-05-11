@@ -25,7 +25,7 @@ const Software = () => {
   useEffect(() => {
     getData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [data === null])
 
   const sortByName = () => {
     if(order === '' || order !== 'dn'){

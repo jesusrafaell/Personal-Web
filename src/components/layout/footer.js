@@ -39,6 +39,9 @@ const Footer = ({location}) => {
                     </span>
                  </Link>
             </div>
+            <div className="footerDate">
+                © {new Date().getFullYear()}, Built with Gatsby
+            </div>
         </footer>
     )
 }

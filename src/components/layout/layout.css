@@ -15,21 +15,13 @@
     src: url('../../fonts/Gravity-Book.otf');
 }
 
-*{
+html,body{
     margin: 0;
     padding: 0;
     font-family: "Gravity-Regular";
     box-sizing: border-box;
 }
 
-body{
-    margin: 0;
-}
-
-html{
-    height: 100%;
-    margin: 0;
-}
 
 h1, h2{
     color: #f2f5f7;
@@ -43,6 +35,8 @@ h1, h2{
 h3, h4 {
     font-family: "Source Sans Pro" ,sans-serif;
 }
+
+/*-----Foooter-------*/
 
 footer{
     width: 100%;
@@ -101,6 +95,15 @@ footer{
     background: rgb(58, 89, 152);
 }
 
+.footerDate{
+    color: #fff;
+    padding-top: 2rem;
+    margin-bottom: 0;
+    position: absolute;
+    margin-top: 22em;
+    font-size: 15px;
+}
+
 @media screen and (max-width: 900px){
     .fa{
         padding: 1vw;
@@ -132,3 +135,4 @@ footer{
     }
 
 }
+

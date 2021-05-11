@@ -1,7 +1,9 @@
 import React, {useState } from 'react'
+import { Link }from 'gatsby'
 import useScroll from '../../../hooks/useScroll'
-import TransitionLink from 'gatsby-plugin-transition-link'
 import './nav.css'
+
+//import TransitionLink from 'gatsby-plugin-transition-link'
 
 const Nav = ({siteTitle, location, transitionStatus}) => { 
 
@@ -49,57 +51,41 @@ const Nav = ({siteTitle, location, transitionStatus}) => {
     }
 
     return(
-        <nav className={`nav ${location} ${ scrollY > 100 && 'affix'}`}>
+        <nav className={`nav nav-${location} ${ scrollY > 10 && 'affix'}`}>
             <div className="navtitle">
-                <TransitionLink 
+                <Link 
                     to="/" 
                     name="index"
                     activeStyle={{ cursor: "default" }} 
                     onClick={handleClickScroll}
-                    exit={{
-                        length: 1
-                    }}
-                    entry={{}}
-                >{siteTitle}</TransitionLink>
+                >{siteTitle}</Link>
             </div>
             <div className={`mainListDiv main_list ${ handleNavOpen() && 'open' }`}>
                 <ul className="navlinks">
                     <li className={`${ navOpen && 'fade'}`} >
-                        <TransitionLink
+                        <Link
                             to="/about"
                             name="about"
                             onClick={handleClickScroll}
                             activeClassName="selected"
-                            exit={{
-                                length: 1
-                            }}
-                            entry={{}}
                         >About Me
-                        </TransitionLink>
+                        </Link>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
-                        <TransitionLink
+                        <Link
                             to="/software"
                             name="software"
                             onClick={handleClickScroll}
                             activeClassName="selected"
-                            exit={{
-                                length: 1
-                            }}
-                            entry={{}}
-                        >Software</TransitionLink>
+                        >Software</Link>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
-                        <TransitionLink 
+                        <Link 
                             to="/contact"
                             name="contact"
                             onClick={handleClickScroll}
                             activeClassName="selected"
-                            exit={{
-                                length: 1
-                            }}
-                            entry={{}}
-                        >Contact</TransitionLink>
+                        >Contact</Link>
                     </li>
                 </ul>
             </div>
