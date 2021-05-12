@@ -2,10 +2,11 @@ import React, {useState } from 'react'
 import { Link }from 'gatsby'
 import useScroll from '../../../hooks/useScroll'
 import './nav.css'
+import { navigate } from 'gatsby'
 
 //import TransitionLink from 'gatsby-plugin-transition-link'
 
-const Nav = ({siteTitle, location, transitionStatus}) => { 
+const Nav = ({siteTitle, location}) => { 
 
     const [navOpen, setnavOpen] = useState(false)
     
@@ -21,19 +22,25 @@ const Nav = ({siteTitle, location, transitionStatus}) => {
             setnavOpen(true)
     }
 
-    const handleClickScroll= (e) =>{
-        if(location === 'index' && e.target.name === 'index'){
-            e.preventDefault()
-        }else if(location === 'about' && e.target.name === 'about'){
-            e.preventDefault()
-        }else if(location === 'software' && e.target.name === 'software'){
-            e.preventDefault()
-        }else if(location === 'contact' && e.target.name === 'contact'){
-            e.preventDefault()
+    const handleScrollY = e => {
+        if(`${location}`=== e.target.name){
+            window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
+            return true
         }else{
-            return;
+            return false 
         }
-        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
+    }
+
+    const handleClickNav= e =>{
+        e.preventDefault()
+        if(handleScrollY(e)){
+            return
+        }else{
+            if(navOpen){
+                setnavOpen(false)
+            }
+            setTimeout(() => navigate(`${e.target.name}`), 1000)
+        }
     }
 
     const handleNavOpen = () => {
@@ -51,13 +58,13 @@ const Nav = ({siteTitle, location, transitionStatus}) => {
     }
 
     return(
-        <nav className={`nav nav-${location} ${ scrollY > 10 && 'affix'}`}>
+        <nav className={`nav nav-${ location === '/' ? 'index' : location.substring(1)} ${ scrollY > 10 && 'affix'}`}>
             <div className="navtitle">
                 <Link 
                     to="/" 
-                    name="index"
+                    name="/"
                     activeStyle={{ cursor: "default" }} 
-                    onClick={handleClickScroll}
+                    onClick={handleClickNav}
                 >{siteTitle}</Link>
             </div>
             <div className={`mainListDiv main_list ${ handleNavOpen() && 'open' }`}>
@@ -65,8 +72,8 @@ const Nav = ({siteTitle, location, transitionStatus}) => {
                     <li className={`${ navOpen && 'fade'}`} >
                         <Link
                             to="/about"
-                            name="about"
-                            onClick={handleClickScroll}
+                            name="/about"
+                            onClick={handleClickNav}
                             activeClassName="selected"
                         >About Me
                         </Link>
@@ -74,16 +81,16 @@ const Nav = ({siteTitle, location, transitionStatus}) => {
                     <li className={`${ navOpen && 'fade'}`}>
                         <Link
                             to="/software"
-                            name="software"
-                            onClick={handleClickScroll}
+                            name="/software"
+                            onClick={handleClickNav}
                             activeClassName="selected"
                         >Software</Link>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
                         <Link 
                             to="/contact"
-                            name="contact"
-                            onClick={handleClickScroll}
+                            name="/contact"
+                            onClick={handleClickNav}
                             activeClassName="selected"
                         >Contact</Link>
                     </li>

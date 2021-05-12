@@ -4,13 +4,18 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-  //  `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve('./src/components/layout/layout.js'),
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

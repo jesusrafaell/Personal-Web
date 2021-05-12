@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import Layout from '../components/layout/layout'
 import Project from '../components/project'
 import '../styles/software.css'
 
@@ -100,7 +99,6 @@ const Software = () => {
   }
 
   return(
-    <Layout location='software'>
       <div className="software-bg">
         <div className="sofware-table">
           <h3>Repository</h3>
@@ -138,7 +136,6 @@ const Software = () => {
             )}
         </div>
       </div>
-    </Layout>
   )
 }
 

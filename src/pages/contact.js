@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Layout from '../components/layout/layout'
 import { navigate } from 'gatsby'
 import '../styles/contact.css'
 
@@ -40,7 +39,6 @@ const Contact = () => {
   }
 
   return (
-    <Layout location='contact'>
       <div className="contact-bg"> 
         <div className="form">
           {send ? (
@@ -92,7 +90,6 @@ const Contact = () => {
           )}
         </div>
       </div>
-    </Layout>
   )
 }
 

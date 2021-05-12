@@ -1,5 +1,4 @@
 import React  from 'react'
-import Layout from '../components/layout/layout'
 import image from '../images/jesusrafaell.png'
 import '../styles/about.css'
 import useScroll from '../hooks/useScroll'
@@ -9,7 +8,6 @@ const About = () => {
   const { scrollY } = useScroll()
 
   return (
-  <Layout location='about'>
     <div className="about-bg"> 
       <div id="photo" className={`photo ${ (scrollY > 70) && 'disablephoto' }`}>
           <img src={image} alt="jesusrafaell"/>
@@ -25,8 +23,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  </Layout>
-)
+  )
 }
 
 export default About
