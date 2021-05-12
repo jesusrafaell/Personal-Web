@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Transition from './Transition'
+import TransitionPage from './TransitionPage'
 
 //import { useStaticQuery, graphql } from "gatsby"
 
@@ -20,9 +20,9 @@ const Layout = ({children,location}) => {
       </Helmet>
       <Header siteTitle={`JesusRafaell`} location={location.pathname}/>
       <div className={`pages p-${location} `}>
-        <Transition location = {location}>
+        <TransitionPage location = {location}>
           {children}
-        </Transition>
+        </TransitionPage>
       </div>
       <Footer location={location}/>
     </>

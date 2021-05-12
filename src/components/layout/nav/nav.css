@@ -18,6 +18,12 @@ header{
     padding-bottom: 20px;
 }
 
+.nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-transition: all .5s linear 1.5s;
+}
+
 .nav div.navtitle {
     float: left;
     width: auto;
@@ -75,13 +81,6 @@ header{
 
 .navTrigger {
     display: none;
-}
-
-.nav {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
 }
 
 @media screen and (min-width:900px) {
