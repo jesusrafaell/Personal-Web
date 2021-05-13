@@ -8,6 +8,8 @@ import { navigate } from 'gatsby'
 
 const Nav = ({siteTitle, location}) => { 
 
+    const local = location === '/' ? 'index' : `${location.substring(1, location.length - 1)}`
+
     const [navOpen, setnavOpen] = useState(false)
     
     const { scrollY } = useScroll()
@@ -39,7 +41,8 @@ const Nav = ({siteTitle, location}) => {
             if(navOpen){
                 setnavOpen(false)
             }
-            setTimeout(() => navigate(`${e.target.name}`), 1000)
+            //setTimeout(() => navigate(`${e.target.name}`), 1000)
+            navigate(`${e.target.name}`)
         }
     }
 
@@ -58,7 +61,7 @@ const Nav = ({siteTitle, location}) => {
     }
 
     return(
-        <nav className={`nav nav-${ location === '/' ? 'index' : location.substring(1)} ${ scrollY > 10 && 'affix'}`}>
+        <nav className={`nav nav-${local} ${ scrollY > 10 && 'affix'}`}>
             <div className="navtitle">
                 <Link 
                     to="/" 
@@ -71,8 +74,8 @@ const Nav = ({siteTitle, location}) => {
                 <ul className="navlinks">
                     <li className={`${ navOpen && 'fade'}`} >
                         <Link
-                            to="/about"
-                            name="/about"
+                            to="/about/"
+                            name="/about/"
                             onClick={handleClickNav}
                             activeClassName="selected"
                         >About Me
@@ -80,16 +83,16 @@ const Nav = ({siteTitle, location}) => {
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
                         <Link
-                            to="/software"
-                            name="/software"
+                            to="/software/"
+                            name="/software/"
                             onClick={handleClickNav}
                             activeClassName="selected"
                         >Software</Link>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
                         <Link 
-                            to="/contact"
-                            name="/contact"
+                            to="/contact/"
+                            name="/contact/"
                             onClick={handleClickNav}
                             activeClassName="selected"
                         >Contact</Link>

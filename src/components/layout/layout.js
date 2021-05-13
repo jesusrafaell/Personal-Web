@@ -4,6 +4,7 @@ import {
   TransitionGroup,
   Transition as ReactTransition,
 } from "react-transition-group"
+import { Power3, gsap } from "gsap";
 
 //import { useStaticQuery, graphql } from "gatsby"
 
@@ -14,41 +15,87 @@ import './layout.css'
 
 const Layout = ({children,location}) => {
 
-  const timeout = 600
-  const getTransitionStyles = {
-    entering: {
-      opacity: 0,
-    },
-    entered: {
-      transition: `opacity ${timeout}ms ease-in-out`,
-      opacity: 1,
-    },
-    exiting: {
-      transition: `opacity ${timeout}ms ease-in-out`,
-      opacity: 0,
-    },
-    exited: {
-      transition: `opacity ${timeout}ms ease-in-out`,
-      opacity: 0,
-    },
-  }
+  const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
 
-  const entering = e => {
-    console.log('entering')
-  }
+  console.log('Changeeeeeee------',local)
 
-  const entered = e => {
-    console.log('entered')
-  }
+  const onEnter = node => {
+   console.log('enter', local, node)
+    if(window.innerWidth < 900) return
+      gsap.fromTo(
+        node,
+        {
+          x: '100%',
+          ease: Power3.InOut,
+          autoAlpha: 0,
+          stagger: {
+            amount: 0.2
+          },
+        },
+        {
+          x: '0%',
+          ease: Power3.InOut,
+          autoAlpha: 1,
+          stagger: {
+            amount: 0.2
+          },
+          duration: 2
+          ,
+        }
+      );
+      gsap.fromTo(
+        [node.children[0].firstElementChild, node.children[0].lastElementChild],
+        {
+          scaleX: -0.1, 
+          autoAlpha: 0,
+          duration: 0
+        },
+        {
+          delay: 1,
+          y: 30,
+          scaleX: 1, 
+          ease: Power3.easeIn,
+          autoAlpha: 1,
+          stagger: {
+            amount: 0.2
+          },
+          duration: 0.6,
+        }
+      );
 
+  };
 
-  const exiting = e => {
-    console.log('exiting')
-  }
+  const onExit = node => {
+    console.log('exit', local, node)
+    gsap.to(
+      node,
+      1,
+      {
+        x: '-100%',
+        ease: Power3.InOut,
+        autoAlpha: 0,
+        stagger: {
+          amount: 0.2
+        },
+      }
+    );
 
-  const exited = e => {
-    console.log('exited')
-  }
+    gsap.to(
+      [node.children[0].firstElementChild, node.children[0].lastElementChild],
+      0.6,
+      {
+        delay: 2,
+        y: -30,
+        scaleX: -0.1, 
+        ease: Power3.InOut,
+        autoAlpha: 0,
+        stagger: {
+          amount: 0.2
+        }
+      }
+    );
+  };
+
   return (
     <>
       <Helmet>
@@ -56,36 +103,31 @@ const Layout = ({children,location}) => {
         <link rel="icon" href={icon}/>
       </Helmet>
       <Header siteTitle={`JesusRafaell`} location={location.pathname}/>
-      <div className={`pages p-${location} `}>
       <TransitionGroup>
           <ReactTransition
               key={location.pathname}
-              timeout={{
-                  enter: 1000,
-                  exit: 500,
-              }}
-              onEntering={entering}
-              onEntered={entered}
-              onExiting={exiting}
-              onExited={exited}
-              unmountOnExit
+              timeout={1200}
+              onEntering={onEnter}
+              onExit={onExit}
+              appear
           >
               {status => (
-                  <div
-                      style={{
-                          ...getTransitionStyles[status],
-                      }}
-                  >
-                      {console.log(location.pathname,status)}
-                      {children}
-                  </div>
+                <div className={`
+                  page
+                  page-${local}
+                `}
+                >
+                  {console.log(location.pathname,status)}
+                  {children}
+      <Footer location={location}/>
+                </div>
               )}
           </ReactTransition>
       </TransitionGroup>
-      </div>
-      <Footer location={location}/>
     </>
   )
 }
 
 export default Layout
+
+                  //{console.log(location.pathname,status)}

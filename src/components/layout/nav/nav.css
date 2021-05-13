@@ -21,7 +21,11 @@ header{
 .nav {
     padding-top: 20px;
     padding-bottom: 20px;
-    -webkit-transition: all .5s linear 1.5s;
+    -webkit-transition: all .5s linear .5s;
+}
+
+.nav-software {
+    -webkit-transition: all .5s linear;
 }
 
 .nav div.navtitle {
