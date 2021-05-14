@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;   
-    height: 100vh;
+    height: 100%;
 }
 
 .addTd{
@@ -193,12 +193,13 @@ h3{
   .software-bg{
     height: 100%;
     width: 100%;
+    padding-bottom: 100%;
   }
 
   .sofware-table{
-    padding-top: 8rem;
+    padding-top: 7rem;
+    height: 100%;
   }
-  
 
   h3{
     margin-left: -40vw;

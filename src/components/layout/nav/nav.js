@@ -25,8 +25,9 @@ const Nav = ({siteTitle, location}) => {
     }
 
     const handleScrollY = e => {
+        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
         if(`${location}`=== e.target.name){
-            window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
+            e.preventDefault()
             return true
         }else{
             return false 
@@ -34,7 +35,6 @@ const Nav = ({siteTitle, location}) => {
     }
 
     const handleClickNav= e =>{
-        e.preventDefault()
         if(handleScrollY(e)){
             return
         }else{
@@ -42,7 +42,6 @@ const Nav = ({siteTitle, location}) => {
                 setnavOpen(false)
             }
             //setTimeout(() => navigate(`${e.target.name}`), 1000)
-            navigate(`${e.target.name}`)
         }
     }
 

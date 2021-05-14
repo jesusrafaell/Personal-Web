@@ -20,9 +20,7 @@ html,body{
     padding: 0;
     font-family: "Gravity-Regular";
     box-sizing: border-box;
-    background-color: #151515;
 }
-
 
 h1, h2{
     color: #f2f5f7;
@@ -134,7 +132,6 @@ footer{
     .fb svg{
         background: rgb(58, 89, 152);
     }
-
 }
 
 .page{
@@ -144,9 +141,7 @@ footer{
 }
 .page div{
     position: flex;
-
 }
 
-.page-contact{
-    background: #000;
-}
+
+
