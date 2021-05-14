@@ -15,10 +15,10 @@ const IndexPage = () => {
   }
 
   return(
-      <div className="indexPage">
-          <h1 className={`titlemain ${ checkHidden(100) && 'disabletitle' }`}>Welcome</h1>
-          <div className="overlay"></div>
-      </div>
+    <div className="indexPage">
+        <h1 className={`titlemain ${ checkHidden(100) && 'disabletitle' }`}>Welcome</h1>
+        <div className="overlay"></div>
+    </div>
   )
 }
 

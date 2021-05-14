@@ -2,17 +2,12 @@ import React from 'react'
 import { TransitionGroup, Transition as ReactTransition, } from "react-transition-group"
 import { Power3, gsap } from "gsap";
 import Footer from './footer'
-import './transitionPage.css'
-
 
 const transitionPage = ({children, location}) => {
 
   const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
 
-  console.log('Changeeeeeee------',local)
-
   const onEnter = node => {
-    console.log('enter', local, node)
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
       if(window.innerWidth < 900) {
         gsap.fromTo(
@@ -59,22 +54,28 @@ const transitionPage = ({children, location}) => {
       }
     )
 
-    gsap.from(
+    gsap.fromTo(
       childrenNode,
-      0.6,
       {
+        delay: 2,
         y: 30,
-        delay: 1,
+        opacity: 0,
+        borderRadius: 10 + "rem",
         ease: Power3.InOut,
         stagger: {
           amount: 0.2
         }
+      },{
+        delay: 2,
+        y: 0,
+        opacity: 1,
+        borderRadius: 0,
+        duration: 0.6
       }
     )
   }
 
   const onExit = node => {
-    console.log('exit', local, node)
     gsap.to(
       node,
       1,
@@ -106,7 +107,6 @@ const transitionPage = ({children, location}) => {
 
     return (
         <>
-        <div className='page-transition-white'></div>
         <div className='page-transition-black'></div>
           <TransitionGroup>
               <ReactTransition

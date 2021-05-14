@@ -143,5 +143,11 @@ footer{
     position: flex;
 }
 
+.page-transition-black {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
 
 

@@ -26,4 +26,3 @@ const Layout = ({children,location}) => {
 
 export default Layout
 
-                  //{console.log(location.pathname,status)}

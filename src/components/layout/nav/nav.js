@@ -2,7 +2,6 @@ import React, {useState } from 'react'
 import { Link }from 'gatsby'
 import useScroll from '../../../hooks/useScroll'
 import './nav.css'
-import { navigate } from 'gatsby'
 
 //import TransitionLink from 'gatsby-plugin-transition-link'
 
