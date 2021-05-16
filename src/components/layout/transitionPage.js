@@ -43,7 +43,7 @@ const transitionPage = ({children, location}) => {
 
     if(local === 'about'){
       t1.set(node, {
-        y: '100%',
+        y: '110%',
         ease: Power3.InOut,
         opacity: 0,
         stagger: {
@@ -72,7 +72,8 @@ const transitionPage = ({children, location}) => {
       }
     )
 
-    t1.set(".footer",{
+    t1.to(".footer",{
+      delay: .5,
       display: 'flex'
     })
   }
@@ -94,9 +95,9 @@ const transitionPage = ({children, location}) => {
       })
       t1.to(node, {
         delay: 1.2,
-        y: '100%',
+        y: '110%',
         ease: Power3.easeOut,
-        opacity: 1,
+        opacity: 0,
         display: 'none',
         stagger: {
           amount: 0.2
