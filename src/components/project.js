@@ -12,11 +12,11 @@ const Project = ({project}) => {
       <td className="pro">
          <span className="addTd">Deploy</span>
          {project.info && project.info[1] ? (
-               <a href={project.info[1]} target="_blank" rel="noopener noreferrer">
-                  <img src={linkIcon} alt="link"/>
-               </a>
+            <a href={project.info[1]} target="_blank" rel="noopener noreferrer">
+               <img src={linkIcon} alt="link"/>
+            </a>
          ):(
-              'X'
+           'X'
          )}
       </td>
    </tr>

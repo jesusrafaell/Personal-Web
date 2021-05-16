@@ -25,4 +25,3 @@ const Layout = ({children,location}) => {
 }
 
 export default Layout
-

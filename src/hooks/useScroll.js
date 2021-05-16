@@ -7,13 +7,13 @@ const useScroll = () => {
   const [scrollY, setScrollY] = useState(windowGlobal.scrollY)
 
   useEffect(() => {
-    const handleScroll = e => {
+    const handleScroll = () => {
       setScrollY(windowGlobal.scrollY)
     }
       windowGlobal.addEventListener("scroll", handleScroll)
-      return () => {
-          windowGlobal.removeEventListener("scroll", handleScroll)
-      }
+    return () => {
+      windowGlobal.removeEventListener("scroll", handleScroll) 
+    }
   },[windowGlobal])
 
   return {

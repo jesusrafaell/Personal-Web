@@ -45,4 +45,5 @@ const Footer = ({location}) => {
         </footer>
     )
 }
+
 export default Footer

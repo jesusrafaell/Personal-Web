@@ -1,6 +1,6 @@
 .about-bg{
     background-color: lightgray;
-    height: 100vh;
+    height: 100%;
 }
 
 @media screen and (min-width: 901px){

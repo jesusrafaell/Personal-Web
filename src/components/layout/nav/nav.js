@@ -24,7 +24,7 @@ const Nav = ({siteTitle, location}) => {
     }
 
     const handleScrollY = e => {
-        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 1s ease' })
+        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 2s linear' })
         if(`${location}`=== e.target.name){
             e.preventDefault()
             return true

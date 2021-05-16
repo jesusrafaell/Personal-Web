@@ -1,8 +1,7 @@
-import * as React from "react"
+export default function NotFound() {
+  if (typeof window !== 'undefined') {
+    window.location = '/';
+  }
 
-
-const NotFoundPage = () => (
-    <h1>404: Not Found</h1>
-)
-
-export default NotFoundPage
+  return null;
+}
