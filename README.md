@@ -7,7 +7,7 @@
     
    La CLI de Gatsby está disponible a través de npm y se instala globalmente al ejecutar.
    ```shell
-    npm install -g gatsby-cli.
+    npm install -g gatsby-cli
    ```
   
 ## Start developing
