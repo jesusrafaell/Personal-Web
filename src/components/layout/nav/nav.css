@@ -91,7 +91,10 @@ header{
     /*debug problem nav with table project*/
     .nav div.main_list ul li a {
         padding: 15px 30px;
-        cursor: pointer;
+    }
+
+    .nav a {
+        cursor: no-drop;
     }
 
     .nav div.main_list ul li a:hover {

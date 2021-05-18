@@ -13,14 +13,13 @@
 
 .contenterIndex{
   position: relative;
-  width: 80%;
-  height: 30%;
+  width: 90%;
+  height: 30vh;
   padding-top: 10vh;
 /*  border: 2px solid red;*/
-  top: 25%;
-  left: 5%;
+  top: 25vh;
+  left: 5vw;
   background: rgb(0, 0, 155, 0.4);
-  z-index: 7;
 }
 
 .titlemain, .titlemain2 {
@@ -32,6 +31,7 @@
   left: 0;
   right: 0;
   -webkit-font-smoothing: antialiased;
+  cursor: default;
 }
 
 .titlemain{
@@ -45,7 +45,4 @@
 .titlemain span,
 .titlemain2 span{
   float: left;
-}
-
-@media screen and (max-width: 900px){
 }

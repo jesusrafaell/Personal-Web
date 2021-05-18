@@ -1,11 +1,15 @@
-import React, {useState } from 'react'
-import { Link }from 'gatsby'
+import React, { useState, useContext} from 'react'
+import { Link, navigate }from 'gatsby'
+import { gsap } from 'gsap'
+
+import { GlobalStateContext } from '../../../context/GlobalContextProvider'
+
 import useScroll from '../../../hooks/useScroll'
 import './nav.css'
-import { gsap } from 'gsap'
-import { navigate } from 'gatsby'
 
 const Nav = ({siteTitle, location}) => { 
+
+    const {transitionNav, setTransitionNav} = useContext(GlobalStateContext)
 
     const local = location === '/' ? 'index' : `${location.substring(1, location.length - 1)}`
 
@@ -16,6 +20,9 @@ const Nav = ({siteTitle, location}) => {
     const [scrollYOld, setscrollYOld] = useState(scrollY);
 
     const handleClick = () => {
+        if(transitionNav){
+            return
+        }
         setscrollYOld(scrollY)
         if(navOpen)
             setnavOpen(false)
@@ -24,21 +31,26 @@ const Nav = ({siteTitle, location}) => {
     }
 
     const handleClickNav= e =>{
-        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 2s linear' })
+        e.preventDefault()
+        if(transitionNav){
+            return
+        }
+        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 3s linear' })
         if(`${location}`=== e.target.name){
-            e.preventDefault()
             return 
         }else{
+            setTransitionNav(true)
             if(navOpen){
                 setnavOpen(false)
             }
             if(window.innerWidth < 901){
+                navigate(`${e.target.name}`)
                 return
             }
-            e.preventDefault()
+            //console.log(transitionNav)
             //let colorBorder = local === 'software' ? 'black' : 'white'
+            const tl = gsap.timeline({repeat:false})
             if(e.target.name !== '/'){
-                const tl = gsap.timeline({repeat:false})
                 //init nav aniamtion -> end in transitionPage
                 tl.to(e.target, .8, {
                     paddingTop: '0',
@@ -49,11 +61,16 @@ const Nav = ({siteTitle, location}) => {
                 })
                 .to(e.target, .4, {
                     width: 'auto',
+                    onComplete: (() => 
+                        navigate(`${e.target.name}`)
+                    )
                 })
-            }
-            setTimeout(() => {
+            }else{
                 navigate(`${e.target.name}`)
-            }, 1000)
+            }
+            tl.to('.nav a', {
+                cursor: 'no-drop',
+            })
         }
     }
 
@@ -77,7 +94,7 @@ const Nav = ({siteTitle, location}) => {
                 <Link 
                     to="/" 
                     name="/"
-                    activeStyle={{ cursor: "default" }} 
+                    activeStyle={{ cursor: `${transitionNav ? null : 'default'}`}} 
                     onClick={handleClickNav}
                 >{siteTitle}</Link>
             </div>

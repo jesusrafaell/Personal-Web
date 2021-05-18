@@ -3,7 +3,7 @@ import { TransitionGroup, Transition as ReactTransition, } from "react-transitio
 import { Power3, gsap } from "gsap";
 import Footer from './footer'
 
-const transitionPage = ({children, location}) => {
+const transitionPage = ({children, location, stateTransitionNav}) => {
 
   const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
   const delaying = 1;
@@ -105,8 +105,14 @@ const transitionPage = ({children, location}) => {
       .to('.selected', .2, {
         delay: .5,
         border: '2px solid transparent',
-      });
+      })
     }
+    t1.to('.nav a', {
+      cursor: 'pointer',
+      onComplete: (() =>
+        stateTransitionNav.setTransitionNav(false)
+      )
+    })
     if(local !== 'software'){
       t1.to(".footer",{
         delay: delaying,
@@ -121,7 +127,7 @@ const transitionPage = ({children, location}) => {
     const t1 = gsap.timeline({ repeat: false })
 
     if(local !== 'software'){
-      gsap.set(".footer",{
+      t1.set(".footer",{
         display: 'none'
       })
     }
