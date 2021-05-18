@@ -12,8 +12,12 @@ const transitionPage = ({children, location}) => {
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
 
     const t1 = gsap.timeline({ repeat: false })
-    t1.set(".page", { overflow: "hidden" })
-
+    if(local !== 'software'){
+      gsap.set(".footer",{
+        display: 'none'
+      })
+    }
+    gsap.set(".page", { overflow: "hidden" })
     gsap.set(childrenNode, {
       opacity: 0,
       y: 60,
@@ -21,13 +25,38 @@ const transitionPage = ({children, location}) => {
       duration: 0,
       borderRadius: `10rem`,
     })
-
     if(local === 'index'){
-      t1.to(node, 0.4, {
-        delay: 2
+      gsap.set(node, {
+        x: '100%',
+        ease: Power3.InOut,
+        opacity: 0,
+        stagger: {
+          amount: 0.2
+        },
+        duration: 0
+      })
+      t1.to(node, {
+        x: '0',
+        ease: Power3.InOut,
+        opacity: 1,
+        stagger: {
+          amount: 0.2
+        },
+        duration: 1.5
+      })
+      t1.to(childrenNode, {
+          delay: 1,
+          y: 0,
+          opacity: 1,
+          borderRadius: '0rem',
+        }
+      )
+      .from('.contenterIndex', 1, {
+        left: '20%',
+        width: '80%',
+        background: 'black'
       })
     }
-
     else if(local === 'about'){
       t1.set(node, {
         y: '110%',
@@ -56,14 +85,16 @@ const transitionPage = ({children, location}) => {
     }
 
 
-    t1.to(childrenNode, {
-        delay: 0,
-        y: 0,
-        opacity: 1,
-        borderRadius: '0rem',
-        duration: 0.6
-      }
-    )
+    if(local !== 'index'){
+      t1.to(childrenNode, {
+          delay: 0,
+          y: 0,
+          opacity: 1,
+          borderRadius: '0rem',
+          duration: 0.6
+        }
+      )
+    } 
     //End aniamtion nav <- init in navbar
     if(local !== 'index' && window.innerWidth > 901){
      t1.to('.selected', .3, {
@@ -76,20 +107,24 @@ const transitionPage = ({children, location}) => {
         border: '2px solid transparent',
       });
     }
-    t1.to(".footer",{
-      delay: delaying,
-      display: 'flex'
-    })
-    .set(".page", { overflow: "visible" })
+    if(local !== 'software'){
+      t1.to(".footer",{
+        delay: delaying,
+        display: 'flex'
+      })
+    }
+    t1.set(".page", { overflow: "visible" })
   }
 
   const onExit = node => {
 
     const t1 = gsap.timeline({ repeat: false })
 
-    t1.set(".footer",{
-      display: 'none'
-    })
+    if(local !== 'software'){
+      gsap.set(".footer",{
+        display: 'none'
+      })
+    }
 
     if(local === 'index'){
       const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
@@ -104,6 +139,7 @@ const transitionPage = ({children, location}) => {
         let auY = (Math.random() * maxH + min) * sig2
         let auxRo = (Math.random() * 99 + 1) * sig
         gsap.to(`#${acc}`, 1, {
+          delay: .7,
           rotation: auxRo,
           position: 'flex',
           y: `${auY}%`,
@@ -111,23 +147,19 @@ const transitionPage = ({children, location}) => {
           ease: Power3.easeOut,
         })
       })
-
-      t1.set(node, {
-        zIndex: 7,
-      })
-      .to(node, {
-        delay: 1.2,
-        y: '-110%',
+      t1.to(node, {
+        delay: 1.5,
+        y: '-100%',
         ease: Power3.easeOut,
         display: 'none',
         stagger: {
           amount: 0.2
         },
-        duration: 2
+        duration: 3
       })
     }
 
-    if(local === 'about'){
+     else if(local === 'about'){
       t1.set(node, {
         zIndex: 7,
       })
@@ -143,12 +175,26 @@ const transitionPage = ({children, location}) => {
         duration: 2
       })
     }
+    else{
+      t1.to(node, {
+        delay: 1.2,
+        background: 'black',
+        x: '-100%',
+        ease: Power3.easeOut,
+        opacity: 0,
+        display: 'none',
+        stagger: {
+          amount: 0.2
+        },
+        duration: 2
+      })
+    }
 
-    gsap.to(
+    t1.to(
       [node.children[0].firstElementChild, node.children[0].lastElementChild],
       0.6,
       {
-        delay: 2,
+        delay: 1,
         y: -50,
         scaleX: -0.1, 
         ease: Power3.InOut,
@@ -158,10 +204,12 @@ const transitionPage = ({children, location}) => {
         }
       }
     )
-    t1.to(".footer",{
-      delay: delaying,
-      display: 'flex'
-    })
+    if(local !== 'software '){
+      t1.to(".footer",{
+        delay: delaying,
+        display: 'flex'
+      })
+    }
   }
 
   return (

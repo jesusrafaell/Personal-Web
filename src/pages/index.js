@@ -7,12 +7,13 @@ const IndexPage = () => {
   const letter = ['s1','s2','s3','s4','s5','s6','s7','s8']
   const letter2 = ['x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
 
-  const maxH = window.innerWidth > 900 ? 300 : window.innerHeight
-  const maxW = 500
-  const min = 1
-  const timeEffect = 3
+  const windowGlobal = typeof window !== 'undefined' && window
 
   const titileAnimation = () => {
+    const maxH = windowGlobal.innerWidth > 900 ? 400 : windowGlobal.innerHeight
+    const maxW = 500
+    const min = 1
+    const timeEffect = 3
     const shuffLetter = letter.sort((a, b) => 0.5 - Math.random());
     const shuffLetter2 = letter2.sort((a, b) => 0.5 - Math.random());
     shuffLetter.forEach((acc,curr) => {
@@ -45,7 +46,7 @@ const IndexPage = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => titileAnimation(), 2000);
+    setTimeout(() => titileAnimation(), 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
