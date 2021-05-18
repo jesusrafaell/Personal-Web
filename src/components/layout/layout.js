@@ -1,8 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-//import { useStaticQuery, graphql } from "gatsby"
-
 import Transition from './transitionPage'
 import Header from './header'
 import icon from '../../images/icon-32x32.ico'

@@ -70,7 +70,7 @@ header{
     font-size: 1.2em;
     border-radius: 1rem;
     font-family: "Gravity-Regular";
-    transition: all 0.3s linear 0.1s;
+    transition: .2s all ease-in-out;
 }
 
 .nav div.main_list ul li a:hover {
@@ -90,11 +90,12 @@ header{
 @media screen and (min-width:900px) {
     /*debug problem nav with table project*/
     .nav div.main_list ul li a {
-        padding: .8rem;
+        padding: 15px 30px;
+        cursor: pointer;
     }
 
     .nav div.main_list ul li a:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, .2);
     }
 
     .nav-software div.navtitle a{
@@ -103,6 +104,14 @@ header{
 
     .nav-software div.main_list ul li a{
         color: #000;
+    }
+
+    .nav-software div.main_list ul li a:hover{
+      background: rgba(0, 0, 0, .2);
+    }
+
+    .nav div.main_list ul li .selected:hover {
+        background: none;
     }
 
     .affix {

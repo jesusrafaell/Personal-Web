@@ -6,11 +6,14 @@ import Footer from './footer'
 const transitionPage = ({children, location}) => {
 
   const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
+  const delaying = 2;
 
   const onEnter = node => {
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
 
+
     const t1 = gsap.timeline({ repeat: false })
+    t1.set(".page", { overflow: "hidden" })
     
     t1.set(".footer",{
       display: 'none'
@@ -25,23 +28,12 @@ const transitionPage = ({children, location}) => {
     })
 
     if(local === 'index'){
-      t1.set(".page-transition-black", {
-        autoAlpha: 0,
+      t1.to(node, 0.4, {
+        delay: 2
       })
-      t1.to(".page-transition-black", {
-        autoAlpha: 1,
-        zIndex: 7,
-        duration: 2,
-      })
-      t1.to(".page-transition-black", {
-        delay: 2,
-        opacity: 0,
-        zIndex: 0,
-        duration: 2,
-      })
-   }
+    }
 
-    if(local === 'about'){
+    else if(local === 'about'){
       t1.set(node, {
         y: '110%',
         ease: Power3.InOut,
@@ -51,7 +43,7 @@ const transitionPage = ({children, location}) => {
         },
         duration: 0
       })
-      t1.to(node, {
+      .to(node, {
         delay: 3,
         y: '0',
         ease: Power3.InOut,
@@ -62,6 +54,12 @@ const transitionPage = ({children, location}) => {
         duration: 2
       })
     }
+    else{
+      t1.to(node, .5, {
+        delay: 2,
+      })
+    }
+
 
     t1.to(childrenNode, {
         delay: 0,
@@ -71,21 +69,65 @@ const transitionPage = ({children, location}) => {
         duration: 0.6
       }
     )
-
+    //End aniamtion nav <- init in navbar
+    if(local !== 'index' && window.innerWidth > 901){
+     t1.to('.selected', .2, {
+          height: 'auto',
+          padding: '15px 30px',
+          fontSize: '1.2em',
+      })
+      .to('.selected', .5, {
+          border: '2px solid transparent',
+      });
+    }
     t1.to(".footer",{
-      delay: .5,
+      delay: delaying,
       display: 'flex'
     })
+    .set(".page", { overflow: "visible" })
   }
 
   const onExit = node => {
 
     const t1 = gsap.timeline({ repeat: false })
 
+    t1.set(".footer",{
+      display: 'none'
+    })
+
     if(local === 'index'){
-      t1.to(node, {
-        opacity: 0,
-        duration: 1
+      const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
+      const maxH = window.innerWidth > 900 ? 300 : window.innerHeight
+      const maxW = 500
+      const min = 1
+      const shuffLetter = letter.sort((a, b) => 0.5 - Math.random());
+      shuffLetter.forEach((acc,curr) => {
+        let sig = Math.random() < 0.5 ? -1 : 1
+        let sig2 = Math.random() < 0.5 ? -1 : 1
+        let auX = (Math.random() * maxW + min) * sig
+        let auY = (Math.random() * maxH + min) * sig2
+        let auxRo = (Math.random() * 99 + 1) * sig
+        gsap.to(`#${acc}`, 1, {
+          rotation: auxRo,
+          position: 'flex',
+          y: `${auY}%`,
+          x: `${auX}%`,
+          ease: Power3.easeOut,
+        })
+      })
+
+      t1.set(node, {
+        zIndex: 7,
+      })
+      .to(node, {
+        delay: 1.2,
+        y: '-110%',
+        ease: Power3.easeOut,
+        display: 'none',
+        stagger: {
+          amount: 0.2
+        },
+        duration: 2
       })
     }
 
@@ -93,7 +135,7 @@ const transitionPage = ({children, location}) => {
       t1.set(node, {
         zIndex: 7,
       })
-      t1.to(node, {
+      .to(node, {
         delay: 1.2,
         y: '110%',
         ease: Power3.easeOut,
@@ -111,7 +153,7 @@ const transitionPage = ({children, location}) => {
       0.6,
       {
         delay: 2,
-        y: -30,
+        y: -50,
         scaleX: -0.1, 
         ease: Power3.InOut,
         autoAlpha: 0,
@@ -120,6 +162,10 @@ const transitionPage = ({children, location}) => {
         }
       }
     )
+    t1.to(".footer",{
+      delay: delaying,
+      display: 'flex'
+    })
   }
 
   return (
@@ -130,7 +176,7 @@ const transitionPage = ({children, location}) => {
           key={location.pathname}
           timeout={{
             enter: 3000,
-            exit: 2000
+            exit: 3000
           }}
           onEntering={onEnter}
           onExit={onExit}

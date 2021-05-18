@@ -119,6 +119,10 @@ footer{
 }
 
 @media screen and (max-width: 900px){
+    /*Problem animation in mobible*/
+    html, body{
+        overflow-x: hidden;
+    }
     .fa{
         padding: 1vw;
     }

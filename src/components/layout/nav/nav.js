@@ -2,8 +2,8 @@ import React, {useState } from 'react'
 import { Link }from 'gatsby'
 import useScroll from '../../../hooks/useScroll'
 import './nav.css'
-
-//import TransitionLink from 'gatsby-plugin-transition-link'
+import { gsap } from 'gsap'
+import { navigate } from 'gatsby'
 
 const Nav = ({siteTitle, location}) => { 
 
@@ -23,24 +23,37 @@ const Nav = ({siteTitle, location}) => {
             setnavOpen(true)
     }
 
-    const handleScrollY = e => {
+    const handleClickNav= e =>{
         window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 2s linear' })
         if(`${location}`=== e.target.name){
             e.preventDefault()
-            return true
-        }else{
-            return false 
-        }
-    }
-
-    const handleClickNav= e =>{
-        if(handleScrollY(e)){
-            return
+            return 
         }else{
             if(navOpen){
                 setnavOpen(false)
             }
-            //setTimeout(() => navigate(`${e.target.name}`), 1000)
+            if(window.innerWidth < 901){
+                return
+            }
+            e.preventDefault()
+            //let colorBorder = local === 'software' ? 'black' : 'white'
+            if(e.target.name !== '/'){
+                const tl = gsap.timeline({repeat:false})
+                //init nav aniamtion -> end in transitionPage
+                tl.to(e.target, .8, {
+                    paddingTop: '0',
+                    paddingBottom: '0',
+                    fontSize: '0px',
+                    borderRadius: '10px',
+                    border: `2px solid red`,
+                })
+                .to(e.target, .4, {
+                    width: 'auto',
+                })
+            }
+            setTimeout(() => {
+                navigate(`${e.target.name}`)
+            }, 1000)
         }
     }
 

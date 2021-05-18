@@ -1,7 +1,8 @@
 .indexPage{
   width: 100%;
   height: 100vh;
-  background: url(../images/indexbg.jpg);
+  /*background: url(../images/indexbg.jpg);*/
+  background: #000;
   background-position: center top;
   background-size:cover;
   align-items: center;
@@ -10,25 +11,41 @@
   text-align:center;
 }
 
-/*Titile*/
-  .titlemain {
-    transition: all 0.7s linear 0.2s;
-    text-align: center;
-    padding-top: 35vh;
-    width: 100%;
-    height: 40%;
-    font-size: 9rem;
-    color: white ;
-    opacity: 0;
-  }
+.contenterIndex{
+  position: relative;
+  width: 80%;
+  height: 30%;
+  padding-top: 10vh;
+/*  border: 2px solid red;*/
+  top: 25%;
+  left: 5%;
+  background: rgb(0, 0, 155, 0.4);
+  z-index: 7;
+}
 
-  .disabletitle{
-    opacity: 0;
-    transform: translateY(-500px);
-  }
+.titlemain, .titlemain2 {
+  font-weight: 900;
+  font-size: 9vw;
+  position: absolute;
+  font-family: "Gravity-Bold";
+  margin: auto;
+  left: 0;
+  right: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.titlemain{
+  transform: translate(10%, 4%);
+}
+
+.titlemain2 {
+  transform: translate(6%, 80%);
+}
+
+.titlemain span,
+.titlemain2 span{
+  float: left;
+}
 
 @media screen and (max-width: 900px){
-  .titlemain{
-      font-size: 5rem;
-    }
 }

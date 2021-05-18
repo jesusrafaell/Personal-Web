@@ -55,15 +55,6 @@ h3{
     display:flex;
   }
 
-  .table-scroll thead tr th{
-    border-left: .1px solid rgba(0, 0, 0, .05);
-    transition: all 0.3s ease 0.1s;
-    color: black;
-    font-size: 15px;
-    font-family: "Gravity-bold";
-    text-transform: uppercase;
-  }
-
   .table-scroll tbody tr{
     border-bottom: .1px solid rgba(0, 0, 0, .1);
   }
@@ -80,15 +71,33 @@ h3{
     text-align:left;
   }
 
-	.table-scroll tbody tr td:last-child{
+  .table-scroll thead tr th{
+    border-left: .1px solid rgba(0, 0, 0, .05);
+    transition: all 0.3s ease 0.1s;
+    color: black;
+    font-size: 18px;
+    font-family: "Gravity-bold";
+    text-transform: uppercase;
+    text-align:center;
+    transition: box-shadow .3s cubic-bezier(.175,.885,.32,1.275);
+  }
+
+  .table-scroll th:last-child{
+    flex-basis: 60%;
+  }
+
+  .table-scroll td:last-child{
+    text-align: center;
     font-family: "Gravity-Light";
-	}
+    flex-basis: 60%;
+  }
 
   .table-scroll tbody td,
   .table-scroll tbody td a{
     color: black;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
+
   }
 
   .table-scroll tbody td a:hover {
@@ -111,15 +120,11 @@ h3{
 
 
   .orderDe{
-    border-radius: .3rem;
-    margin-bottom: -2px;
-    border-top: 2px solid rgba(130, 130, 130, .7);
+    box-shadow: inset 0 3px 0 0 rgb(0 0 0 / 60%);
 ;
   }
   .orderIn{
-    border-radius: .3rem;
-    margin-top: -2px;
-    border-bottom: 2px solid rgba(130, 130, 130, .7);
+    box-shadow: inset 0 -3px 0 0 rgb(0 0 0 / 60%);
   }
 
   /*Spinner*/
@@ -234,7 +239,7 @@ h3{
 		top: -9999px;
 		left: -9999px;
 	}
-	
+
   .table-scroll	tr, th { 
 		border-bottom: 2px solid #ccc; 
 		padding: 1.2rem;
