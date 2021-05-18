@@ -6,18 +6,13 @@ import Footer from './footer'
 const transitionPage = ({children, location}) => {
 
   const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
-  const delaying = 2;
+  const delaying = 1;
 
   const onEnter = node => {
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
 
-
     const t1 = gsap.timeline({ repeat: false })
     t1.set(".page", { overflow: "hidden" })
-    
-    t1.set(".footer",{
-      display: 'none'
-    })
 
     gsap.set(childrenNode, {
       opacity: 0,
@@ -71,13 +66,14 @@ const transitionPage = ({children, location}) => {
     )
     //End aniamtion nav <- init in navbar
     if(local !== 'index' && window.innerWidth > 901){
-     t1.to('.selected', .2, {
+     t1.to('.selected', .3, {
           height: 'auto',
           padding: '15px 30px',
           fontSize: '1.2em',
       })
-      .to('.selected', .5, {
-          border: '2px solid transparent',
+      .to('.selected', .2, {
+        delay: .5,
+        border: '2px solid transparent',
       });
     }
     t1.to(".footer",{

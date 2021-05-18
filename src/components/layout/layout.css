@@ -56,10 +56,8 @@ footer{
     height: 25em;
 }
 
-.hiddenFooter {
+.footer{
     display: none;
-    opacity: 0;
-    height: 85em;
 }
 
 .sociallinks {
