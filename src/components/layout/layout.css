@@ -59,12 +59,14 @@ footer{
     align-items: center;
     justify-content: center;
     flex-direction: column;   
-    height: 25em;
+    height: 35em;
 }
 
+/*
 .footer{
     display: none;
 }
+*/
 
 .sociallinks {
     padding: 1.2rem;

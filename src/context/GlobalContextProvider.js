@@ -3,17 +3,17 @@ import React, { createContext, useState } from "react"
 export const GlobalStateContext = createContext()
 
 const GlobalContextProvider = ({ children }) => {
-  const [transitionState, setTransitionState] = useState( {
-    on: "false",
-    prop: ""
+  const [stateTransitionPage, setStateTransitionPage] = useState({
+    on: 'true',
+    end: ''
   })
   const [transitionNav, setTransitionNav] = useState(true) 
   return (
     <GlobalStateContext.Provider 
       value={{
-        transitionState,
+        stateTransitionPage,
         transitionNav,
-        setTransitionState,
+        setStateTransitionPage,
         setTransitionNav
       }}>
         {children}

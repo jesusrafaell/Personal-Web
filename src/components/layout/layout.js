@@ -11,9 +11,14 @@ import { GlobalStateContext } from '../../context/GlobalContextProvider'
 
 const Layout = ({children,location}) => {
 
-  const {transitionNav, setTransitionNav} = useContext(GlobalStateContext)
+  const { 
+    stateTransitionPage, 
+    transitionNav, 
+    setStateTransitionPage, 
+    setTransitionNav} = useContext(GlobalStateContext)
 
   const stateTransitionNav = { transitionNav, setTransitionNav}
+  const statePage = { stateTransitionPage, setStateTransitionPage}
 
   return (
     <>
@@ -23,7 +28,7 @@ const Layout = ({children,location}) => {
       </Helmet>
       <Cursor location={location}/>
       <Header siteTitle={`JesusRafaell`} location={location.pathname}/>
-      <Transition location={location} stateTransitionNav={stateTransitionNav}>
+      <Transition location={location} stateTransitionNav={stateTransitionNav} statePage={statePage}>
         {children}
       </Transition>
     </>

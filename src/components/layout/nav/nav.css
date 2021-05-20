@@ -5,7 +5,7 @@ header{
     position: fixed;
     display: flex;
     width: 100%;
-    z-index: 9;
+    z-index: 999;
 }
 
 .nav {
@@ -16,11 +16,7 @@ header{
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    -webkit-transition: all .4s linear 2s;
-}
-
-.nav-software {
-    -webkit-transition: all .5s linear;
+    transition: .3s all ease-in-out;
 }
 
 .nav div.navtitle {
@@ -88,10 +84,6 @@ header{
         padding: 15px 30px;
     }
 
-    .nav a {
-        /*cursor: no-drop;*/
-    }
-
     .nav-software div.navtitle a{
         color: #000;
     }
@@ -100,32 +92,22 @@ header{
         color: #000;
     }
 
-    .nav-software div.main_list ul li a:hover{
-      background: rgba(0, 0, 0, .2);
-    }
-
-    .nav div.main_list ul li .selected:hover {
-        background: none;
-    }
-
     .affix {
-        background: black;
         height: 2.5rem;
         padding-top: 0.1em;
+        display: flex;
+        justify-content: space-between;
+        mix-blend-mode: difference;
+        position: fixed;
+        top: 0;
+        z-index: 1;
     }
 
-    .affix div.navtitle a{
-        color: #fff;
-    }
-
+    .affix div.navtitle a,
     .affix div.main_list ul li a{
+        text-decoration: none;
         color: #fff;
     }
-}
-
-
-.nav-about,.nav-contact {
-    background-color: black;
 }
 
 @media screen and (max-width:900px) {

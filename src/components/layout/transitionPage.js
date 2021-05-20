@@ -1,14 +1,20 @@
 import React from 'react'
 import { TransitionGroup, Transition as ReactTransition, } from "react-transition-group"
 import { Power3, gsap } from "gsap";
-//import Footer from './footer'
+import Footer from './footer'
 
-const transitionPage = ({children, location, stateTransitionNav}) => {
+const transitionPage = ({children, location, stateTransitionNav, statePage}) => {
 
   const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
 
   const onEnter = node => {
+    statePage.setStateTransitionPage({
+      ...statePage.stateTransitionPage,
+      on: true
+    })
+
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
+
     const t1 = gsap.timeline({ repeat: false })
     gsap.set(".page", { overflow: "hidden" })
     gsap.set(childrenNode, {
@@ -18,6 +24,7 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
       duration: 0,
       borderRadius: `10rem`,
     })
+
     if(local === 'index'){
       gsap.set(node, {
         x: '100%',
@@ -37,17 +44,11 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
         },
         duration: 1.5
       })
-      t1.to(childrenNode, {
-          delay: 1,
-          y: 0,
-          opacity: 1,
-          borderRadius: '0rem',
-        }
-      )
-      .from('.containerIndex', 1, {
-        left: '20%',
-        width: '80%',
-        background: 'black'
+      t1.add(() =>{
+        statePage.setStateTransitionPage({
+          on: false,
+          end: local
+        })
       })
     }
     else if(local === 'about'){
@@ -60,8 +61,14 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
         },
         duration: 0
       })
+      .add(() =>{
+        statePage.setStateTransitionPage({
+          on: false,
+          end: local
+        })
+      }, 1.5)
       .to(node, {
-        delay: 3,
+        delay: 1,
         y: '0',
         ease: Power3.InOut,
         opacity: 1,
@@ -71,14 +78,40 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
         duration: 2
       })
     }
-    else{
+    else if (local === 'software'){
+      t1.add(() =>{
+        statePage.setStateTransitionPage({
+          on: false,
+          end: local
+        })
+      }, 2)
+    }else if (local === 'contact'){
       t1.to(node, .5, {
         delay: 2,
       })
+      .add(() =>{
+        statePage.setStateTransitionPage({
+          on: false,
+          end: local
+        })
+      })
     }
-
-
-    if(local !== 'index'){
+    //Ready Page animation
+    //children animation page
+    if(local === 'index'){
+      t1.to(childrenNode, {
+          delay: 1,
+          y: 0,
+          opacity: 1,
+          borderRadius: '0rem',
+        }
+      )
+      .from('.containerIndex', 1, {
+        left: '20%',
+        width: '80%',
+        background: 'black'
+      })
+    }else{
       t1.to(childrenNode, {
           delay: 0,
           y: 0,
@@ -210,11 +243,11 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
         >
           <div className={` page page-${local}`}>
             {children}
-            {/*(local !== 'software') ?
-              <Footer location={location} className="hiddenFooter"/>
+            {(local !== 'software') ?
+              <Footer location={location} className="Footer"/>
               :
               null
-            */}
+            }
           </div>
         </ReactTransition>
       </TransitionGroup>

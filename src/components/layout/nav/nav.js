@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 import { Link, navigate }from 'gatsby'
 import { gsap } from 'gsap'
 
@@ -9,9 +9,12 @@ import './nav.css'
 
 const Nav = ({siteTitle, location}) => { 
 
-    const {transitionNav, setTransitionNav} = useContext(GlobalStateContext)
-
     const local = location === '/' ? 'index' : `${location.substring(1, location.length - 1)}`
+
+    const { 
+        stateTransitionPage, 
+        transitionNav, 
+        setTransitionNav} = useContext(GlobalStateContext)
 
     const [navOpen, setnavOpen] = useState(false)
     
@@ -47,8 +50,6 @@ const Nav = ({siteTitle, location}) => {
                 navigate(`${e.target.name}`)
                 return
             }
-            //console.log(transitionNav)
-            //let colorBorder = local === 'software' ? 'black' : 'white'
             const tl = gsap.timeline({repeat:false})
             if(e.target.name !== '/'){
                 //init nav aniamtion -> end in transitionPage
@@ -89,7 +90,7 @@ const Nav = ({siteTitle, location}) => {
     }
 
     return(
-        <nav className={`nav nav-${local} ${ scrollY > 10 && 'affix'}`}>
+        <nav className={`nav nav-${stateTransitionPage.end} ${ scrollY > 10 && 'affix'}`}>
             <div className="navtitle">
                 <Link 
                     className="cursorEffect"
