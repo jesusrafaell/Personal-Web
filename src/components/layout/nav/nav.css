@@ -16,12 +16,7 @@ header{
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-}
-
-.nav {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    -webkit-transition: all .5s linear .5s;
+    -webkit-transition: all .4s linear 2s;
 }
 
 .nav-software {
@@ -78,7 +73,7 @@ header{
 }
 
 .nav div.main_list ul li a.selected {
-    cursor: default;
+    /*cursor: default;*/
     color: #777777;
     font-family: "Gravity-Bold";
 }
@@ -94,11 +89,7 @@ header{
     }
 
     .nav a {
-        cursor: no-drop;
-    }
-
-    .nav div.main_list ul li a:hover {
-      background: rgba(255, 255, 255, .2);
+        /*cursor: no-drop;*/
     }
 
     .nav-software div.navtitle a{
@@ -198,7 +189,7 @@ header{
     }
 
     .nav div.main_list ul li a.selected {
-        cursor: default;
+       /* cursor: default;*/
         color: #00FFFF;
         background-color: #333;
     }
@@ -229,7 +220,7 @@ header{
 }
 
 .navTrigger {
-    cursor: pointer;
+   /* cursor: pointer;*/
     width: 30px;
     height: 25px;
     margin: auto;

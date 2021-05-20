@@ -17,6 +17,7 @@
   .contact-bg,
   .form {
     height: 100%;
+    align-items: cente;
   }
 }
 
@@ -28,9 +29,10 @@
   flex-direction: column;
   padding: 50px 0 20px 0;
 }
+
 #title{
   font-family: "Gravity-Bold";
-  font-size: 2.4rem;
+  font-size: 4vw;
 }
 #description{
   font-family: "Gravity-Light";
@@ -81,7 +83,6 @@ select, option {
     margin: 20px;
     color: white;
     background: #505050;
-    cursor: pointer;
 }
 
 /*Spinner*/

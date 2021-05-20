@@ -1,22 +1,15 @@
 import React from 'react'
 import { TransitionGroup, Transition as ReactTransition, } from "react-transition-group"
 import { Power3, gsap } from "gsap";
-import Footer from './footer'
+//import Footer from './footer'
 
 const transitionPage = ({children, location, stateTransitionNav}) => {
 
   const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
-  const delaying = 1;
 
   const onEnter = node => {
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
-
     const t1 = gsap.timeline({ repeat: false })
-    if(local !== 'software'){
-      gsap.set(".footer",{
-        display: 'none'
-      })
-    }
     gsap.set(".page", { overflow: "hidden" })
     gsap.set(childrenNode, {
       opacity: 0,
@@ -51,7 +44,7 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
           borderRadius: '0rem',
         }
       )
-      .from('.contenterIndex', 1, {
+      .from('.containerIndex', 1, {
         left: '20%',
         width: '80%',
         background: 'black'
@@ -108,29 +101,17 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
       })
     }
     t1.to('.nav a', {
-      cursor: 'pointer',
+     // cursor: 'pointer',
       onComplete: (() =>
         stateTransitionNav.setTransitionNav(false)
       )
     })
-    if(local !== 'software'){
-      t1.to(".footer",{
-        delay: delaying,
-        display: 'flex'
-      })
-    }
     t1.set(".page", { overflow: "visible" })
   }
 
   const onExit = node => {
 
     const t1 = gsap.timeline({ repeat: false })
-
-    if(local !== 'software'){
-      t1.set(".footer",{
-        display: 'none'
-      })
-    }
 
     if(local === 'index'){
       const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
@@ -210,12 +191,6 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
         }
       }
     )
-    if(local !== 'software '){
-      t1.to(".footer",{
-        delay: delaying,
-        display: 'flex'
-      })
-    }
   }
 
   return (
@@ -234,11 +209,11 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
         >
           <div className={` page page-${local}`}>
             {children}
-            {(local !== 'software') ?
+            {/*(local !== 'software') ?
               <Footer location={location} className="hiddenFooter"/>
               :
               null
-            }
+            */}
           </div>
         </ReactTransition>
       </TransitionGroup>

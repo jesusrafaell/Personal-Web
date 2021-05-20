@@ -69,7 +69,7 @@ const Nav = ({siteTitle, location}) => {
                 navigate(`${e.target.name}`)
             }
             tl.to('.nav a', {
-                cursor: 'no-drop',
+                //cursor: 'no-drop',
             })
         }
     }
@@ -92,9 +92,10 @@ const Nav = ({siteTitle, location}) => {
         <nav className={`nav nav-${local} ${ scrollY > 10 && 'affix'}`}>
             <div className="navtitle">
                 <Link 
+                    className="cursorEffect"
                     to="/" 
                     name="/"
-                    activeStyle={{ cursor: `${transitionNav ? null : 'default'}`}} 
+                    //activeStyle={{ cursor: `${transitionNav ? null : 'default'}`}} 
                     onClick={handleClickNav}
                 >{siteTitle}</Link>
             </div>
@@ -102,6 +103,7 @@ const Nav = ({siteTitle, location}) => {
                 <ul className="navlinks">
                     <li className={`${ navOpen && 'fade'}`} >
                         <Link
+                            className="cursorEffect"
                             to="/about/"
                             name="/about/"
                             onClick={handleClickNav}
@@ -111,6 +113,7 @@ const Nav = ({siteTitle, location}) => {
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
                         <Link
+                            className="cursorEffect"
                             to="/software/"
                             name="/software/"
                             onClick={handleClickNav}
@@ -119,6 +122,7 @@ const Nav = ({siteTitle, location}) => {
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
                         <Link 
+                            className="cursorEffect"
                             to="/contact/"
                             name="/contact/"
                             onClick={handleClickNav}

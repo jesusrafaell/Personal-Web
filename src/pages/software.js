@@ -101,7 +101,7 @@ const Software = () => {
   return(
     <div className="software-bg">
       <div className="sofware-table">
-        <h3>Repository</h3>
+        <h3 className="titileSoftware cursorEffect">Repository</h3>
         {data.length > 0 ? (
           <table className="table-scroll small-first-col">
             <thead>

@@ -16,7 +16,7 @@ const IndexPage = () => {
     const timeEffect = 3
     const shuffLetter = letter.sort((a, b) => 0.5 - Math.random());
     const shuffLetter2 = letter2.sort((a, b) => 0.5 - Math.random());
-    shuffLetter.forEach((acc,curr) => {
+    shuffLetter.forEach((acc) => {
       let sig = Math.random() < 0.5 ? -1 : 1
       let sig2 = Math.random() < 0.5 ? -1 : 1
       let auX = (Math.random() * maxW + min) * sig
@@ -30,7 +30,7 @@ const IndexPage = () => {
         ease: Power3.easeIn,
       })
     })
-    shuffLetter2.forEach((acc,curr) => {
+    shuffLetter2.forEach((acc) => {
       let sig = Math.random() < 0.5 ? -1 : 1
       let sig2 = Math.random() < 0.5 ? -1 : 1
       let auX = (Math.random() * maxW + min) * sig
@@ -53,32 +53,32 @@ const IndexPage = () => {
 
   return(
     <div className="indexPage">
-      <div className="contenterIndex">
-        <h1 className='titlemain' >
-        <span id="s1" className="letter">F</span>
-        <span id="s2" className="letter">R</span>
-        <span id="s3" className="letter">O</span>
-        <span id="s4" className="letter">N</span>
-        <span id="s5" className="letter">T</span>
-        <span id="s6" className="letter">E</span>
-        <span id="s7" className="letter">N</span>
-        <span id="s8" className="letter">D</span>
-        </h1>
-        <h1 className='titlemain2' >
-        <span id="x1" className="letter">D</span>
-        <span id="x2" className="letter">E</span>
-        <span id="x3" className="letter">V</span>
-        <span id="x4" className="letter">E</span>
-        <span id="x5" className="letter">L</span>
-        <span id="x6" className="letter">O</span>
-        <span id="x7" className="letter">P</span>
-        <span id="x8" className="letter">E</span>
-        <span id="x9" className="letter">R</span>
-        </h1>
+      <div className='containerIndex'>
+        <div className="containerTitle">
+          <h1 className="titlemain" >
+          <span id="s1" className="letter">F</span>
+          <span id="s2" className="letter">R</span>
+          <span id="s3" className="letter">O</span>
+          <span id="s4" className="letter">N</span>
+          <span id="s5" className="letter">T</span>
+          <span id="s6" className="letter">E</span>
+          <span id="s7" className="letter">N</span>
+          <span id="s8" className="letter">D</span>
+          </h1>
+          <h1 className="titlemain2" >
+          <span id="x1" className="letter">D</span>
+          <span id="x2" className="letter">E</span>
+          <span id="x3" className="letter">V</span>
+          <span id="x4" className="letter">E</span>
+          <span id="x5" className="letter">L</span>
+          <span id="x6" className="letter">O</span>
+          <span id="x7" className="letter">P</span>
+          <span id="x8" className="letter">E</span>
+          <span id="x9" className="letter">R</span>
+          </h1>
+        </div>
+        <div className="wrapper"></div>
       </div>
-      {/*
-        <button onClick={handleAnimation} className="index-submit2">Animation</button>
-        */}
     </div>
   )
 }
