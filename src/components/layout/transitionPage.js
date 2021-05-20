@@ -115,9 +115,10 @@ const transitionPage = ({children, location, stateTransitionNav}) => {
 
     if(local === 'index'){
       const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
-      const maxH = window.innerWidth > 900 ? 300 : window.innerHeight
-      const maxW = 500
-      const min = 1
+      const windowGlobal = typeof window !== 'undefined' && window
+      const maxH = windowGlobal.innerHeight / 2
+      const maxW = windowGlobal.innerWidth / 2
+      const min = 50
       const shuffLetter = letter.sort((a, b) => 0.5 - Math.random());
       shuffLetter.forEach((acc,curr) => {
         let sig = Math.random() < 0.5 ? -1 : 1

@@ -10,9 +10,9 @@ const IndexPage = () => {
   const windowGlobal = typeof window !== 'undefined' && window
 
   const titileAnimation = () => {
-    const maxH = windowGlobal.innerWidth > 900 ? 400 : windowGlobal.innerHeight
-    const maxW = 500
-    const min = 1
+    const maxH = windowGlobal.innerHeight / 3 
+    const maxW = windowGlobal.innerWidth / 3 
+    const min = 10
     const timeEffect = 3
     const shuffLetter = letter.sort((a, b) => 0.5 - Math.random());
     const shuffLetter2 = letter2.sort((a, b) => 0.5 - Math.random());
@@ -25,8 +25,8 @@ const IndexPage = () => {
       gsap.from(`#${acc}`, timeEffect , {
         rotation: auxRo,
         position: 'flex',
-        y: `${auY}%`,
-        x: `${auX}%`,
+        y: `${auY}px`,
+        x: `${auX}px`,
         ease: Power3.easeIn,
       })
     })
@@ -39,8 +39,8 @@ const IndexPage = () => {
       gsap.from(`#${acc}`, timeEffect, {
         rotation: auxRo,
         ease: Power2.easeIn,
-        y: `${auY}%`,
-        x: `${auX}%`,
+        y: `${auY}px`,
+        x: `${auX}px`,
       })
     }) 
   }
@@ -55,7 +55,7 @@ const IndexPage = () => {
     <div className="indexPage">
       <div className='containerIndex'>
         <div className="containerTitle">
-          <h1 className="titlemain" >
+          <h1 className="titlemain1" >
           <span id="s1" className="letter">F</span>
           <span id="s2" className="letter">R</span>
           <span id="s3" className="letter">O</span>
