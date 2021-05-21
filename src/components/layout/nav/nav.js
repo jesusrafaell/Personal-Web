@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect} from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, navigate }from 'gatsby'
 import { gsap } from 'gsap'
 
@@ -9,7 +9,7 @@ import './nav.css'
 
 const Nav = ({siteTitle, location}) => { 
 
-    const local = location === '/' ? 'index' : `${location.substring(1, location.length - 1)}`
+    //const local = location === '/' ? 'index' : `${location.substring(1, location.length - 1)}`
 
     const { 
         stateTransitionPage, 
