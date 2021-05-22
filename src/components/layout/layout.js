@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import Transition from './transitionPage'
 import Header from './header'
-import icon from '../../images/icon-32x32.ico'
+import icon from '../../images/icons/icon-32x32.ico'
 import './layout.css'
 import Cursor from './cursor/cursorNav'
 
@@ -15,7 +15,8 @@ const Layout = ({children,location}) => {
     stateTransitionPage, 
     transitionNav, 
     setStateTransitionPage, 
-    setTransitionNav} = useContext(GlobalStateContext)
+    setTransitionNav
+  } = useContext(GlobalStateContext)
 
   const stateTransitionNav = { transitionNav, setTransitionNav}
   const statePage = { stateTransitionPage, setStateTransitionPage}

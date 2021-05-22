@@ -64,7 +64,7 @@ const IndexPage = () => {
     <div className="indexPage">
       <div className="containerIndex">
         <div className="card">
-          <div className="card-bg" >
+          <div className="card-bg cursorEffect" >
             <img id="groot" src={groot} alt="" className="groot cursorEffect"/>
           </div>
           <div className="containerTitle cursorEffect">

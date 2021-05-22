@@ -39,7 +39,7 @@ const Footer = ({location}) => {
                     </span>
                  </Link>
             </div>
-            <div className="footerDate">
+            <div className="footerDate cursorEffect">
                 © {new Date().getFullYear()}, Built with Gatsby
             </div>
         </footer>

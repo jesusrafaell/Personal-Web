@@ -60,7 +60,8 @@ const Cursor = ({location}) => {
     const itemsEffectCursor = 
       [
         ".cursorEffect",
-        ".letter"
+        ".letter",
+        ".sociallinks a"
       ]
     itemsEffectCursor.forEach((acc) => {
       document.querySelectorAll(acc).forEach((el) => {
