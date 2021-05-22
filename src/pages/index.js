@@ -64,10 +64,10 @@ const IndexPage = () => {
     <div className="indexPage">
       <div className="containerIndex">
         <div className="card">
-          <div className="card-bg cursorEffect" >
-            <img id="groot" src={groot} alt="" className="groot cursorEffect"/>
+          <div className="card-bg" >
+            <img id="groot" src={groot} alt="" className="groot"/>
           </div>
-          <div className="containerTitle cursorEffect">
+          <div className="containerTitle">
             <h1 className="titlemain1" >
             <span id="s1" className="letter">F</span>
             <span id="s2" className="letter">R</span>
