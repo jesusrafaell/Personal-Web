@@ -8,25 +8,23 @@ const IndexPage = () => {
   const letter = ['s1','s2','s3','s4','s5','s6','s7','s8', 'x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
 
   useEffect(() => {
-    titileAnimation()
     const t1 = gsap.timeline()
+    titileAnimation()
     t1.set('#groot', {
+      delay: 1,
       opacity: 0
     })
     .from('.card-bg', 2, {
       delay: 1,
       opacity: 0,
-      position: 'center',
-      onComplete: ()=> showGroot(t1)
+      onComplete: ()=> {
+        t1.to('#groot', 1,{
+          opacity: 1
+        })
+      }    
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  const showGroot = tl => {
-    tl.to('#groot', 1,{
-      opacity: 1
-    })
-  }
 
   const titileAnimation = () => {
     const maxH = window.innerHeight / 2 

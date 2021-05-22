@@ -16,7 +16,8 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
 
     const t1 = gsap.timeline({ repeat: false })
-    gsap.set(".page", { overflow: "hidden" })
+
+    .set(".page", { overflow: "hidden" })
 
     if(local === 'index'){
       t1.set(node, {
@@ -28,7 +29,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         },
         duration: 0
       })
-      t1.to(node, 1,{
+      t1.to(node, 2,{
         x: '0',
         ease: Power3.InOut,
         opacity: 1,
@@ -91,11 +92,8 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     }
     //Ready Page animation
     //children animation page
-    t1.to(childrenNode, {
-        delay: 0,
+    t1.to(childrenNode, 0.6, {
         opacity: 1,
-        borderRadius: '0rem',
-        duration: 0.6
     })
     //End aniamtion nav <- init in navbar
     if(local !== 'index' && window.innerWidth > 901){
@@ -119,9 +117,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
   }
 
   const onExit = node => {
-
     const t1 = gsap.timeline({ repeat: false })
-
     if(local === 'index'){
       const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
       const windowGlobal = typeof window !== 'undefined' && window
@@ -144,27 +140,18 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         })
       })
       t1.to(node, {
-        delay: 1.5,
+        delay: 1,
         y: '-100%',
         ease: Power3.easeOut,
-        display: 'none',
         stagger: {
           amount: 0.2
         },
         duration: 3
       })
-    }
-
-     else if(local === 'about'){
-      t1.set(node, {
-        zIndex: 7,
-      })
-      .to(node, {
-        delay: 1.2,
-        y: '110%',
+    }else if(local === 'about'){
+      t1.to(node, {
+        x: '-100%',
         ease: Power3.easeOut,
-        opacity: 0,
-        display: 'none',
         stagger: {
           amount: 0.2
         },
@@ -208,7 +195,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         <ReactTransition
           key={location.pathname}
           timeout={{
-            enter: 3000,
+            enter: 4000,
             exit: 3000
           }}
           onEntering={onEnter}
@@ -219,7 +206,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
             {children}
             {(local !== 'software') ?
               <Footer location={location} className="Footer"/>
-              :
+            :
               null
             }
           </div>
