@@ -17,16 +17,9 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
 
     const t1 = gsap.timeline({ repeat: false })
     gsap.set(".page", { overflow: "hidden" })
-    gsap.set(childrenNode, {
-      opacity: 0,
-      y: 60,
-      delay: 0,
-      duration: 0,
-      borderRadius: `10rem`,
-    })
 
     if(local === 'index'){
-      gsap.set(node, {
+      t1.set(node, {
         x: '100%',
         ease: Power3.InOut,
         opacity: 0,
@@ -35,7 +28,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         },
         duration: 0
       })
-      t1.to(node, {
+      t1.to(node, 1,{
         x: '0',
         ease: Power3.InOut,
         opacity: 1,
@@ -98,29 +91,12 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     }
     //Ready Page animation
     //children animation page
-    if(local === 'index'){
-      t1.to(childrenNode, {
-          delay: 1,
-          y: 0,
-          opacity: 1,
-          borderRadius: '0rem',
-        }
-      )
-      .from('.containerIndex', 1, {
-        left: '20%',
-        width: '80%',
-        background: 'black'
-      })
-    }else{
-      t1.to(childrenNode, {
-          delay: 0,
-          y: 0,
-          opacity: 1,
-          borderRadius: '0rem',
-          duration: 0.6
-        }
-      )
-    } 
+    t1.to(childrenNode, {
+        delay: 0,
+        opacity: 1,
+        borderRadius: '0rem',
+        duration: 0.6
+    })
     //End aniamtion nav <- init in navbar
     if(local !== 'index' && window.innerWidth > 901){
      t1.to('.selected', .3, {
@@ -151,9 +127,8 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
       const windowGlobal = typeof window !== 'undefined' && window
       const maxH = windowGlobal.innerHeight / 2
       const maxW = windowGlobal.innerWidth / 2
-      const min = 50
-      const shuffLetter = letter.sort((a, b) => 0.5 - Math.random());
-      shuffLetter.forEach((acc,curr) => {
+      const min = 10
+      letter.forEach((acc) => {
         let sig = Math.random() < 0.5 ? -1 : 1
         let sig2 = Math.random() < 0.5 ? -1 : 1
         let auX = (Math.random() * maxW + min) * sig
@@ -198,7 +173,6 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     }
     else{
       t1.to(node, {
-        delay: 1.2,
         background: 'black',
         x: '-100%',
         ease: Power3.easeOut,
