@@ -80,7 +80,7 @@
 
 @media screen and (max-width: 900px){
   .about-bg{
-    background: white;
+    background: #000;
     align-items: center; 
     justify-content: center;
     flex-direction: column;   
