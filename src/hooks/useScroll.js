@@ -10,7 +10,7 @@ const useScroll = () => {
     const handleScroll = () => {
       setScrollY(windowGlobal.scrollY)
     }
-      windowGlobal.addEventListener("scroll", handleScroll)
+    windowGlobal.addEventListener("scroll", handleScroll)
     return () => {
       windowGlobal.removeEventListener("scroll", handleScroll) 
     }

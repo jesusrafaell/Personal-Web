@@ -1,89 +1,99 @@
 .about-bg{
-    background: url('../images/jesusrafaell.png');
-    height: 100%;
-    background-position: center top;
-    background-size:cover;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;   
-    text-align:center;
+  background: white;
+  background-position: center top;
+  background-size:cover;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: inherit;
 }
+
 
 @media screen and (min-width: 901px){
-  .info{
-    text-align: center;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 15rem;
-    padding-top: 10em;
-    height: 10em;
-    width: 40vw;
-    transition: all .5s;
-    transition: all .8s cubic-bezier(0.645, 0.045, 0.355, 1.8);
-    position: absolute;
-    margin: auto;
-    top: 30%;
-    right: 0;
-    left: 0;
-  }
-
-  .infoname {
-    font-family: "Gravity-Light";
-    font-size: 3rem;
-    letter-spacing: 3px;
-    color: black;
-    text-align: center;
-    padding-bottom: 1rem;
-  }
-
-  .info h2:hover{ 
-    text-shadow: 20px 20px 20px #37474F;
-  }
-
-  .info:hover{
-    box-shadow: none;
-    background: rgba(255, 255, 255, 0);
-  }
-
-  .descrip p{
-    text-align: center;
-    font-family: karla, serif;
-    font-weight: 300;
-    margin-top: 3rem;
-    position: relative;
-    color: black;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -65%);
-    font-size: 25px;
-  }
-
-  .hiddeninfo{
-    box-shadow: none;
-    background: rgba(255, 255, 255, 0);
-    height: 15em;
-  }
-
-  .hiddeninfo h2{
-    text-shadow: 20px 20px 20px #37474F;
-  }
+.info{
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  transition: all .5s;
+  margin: auto;
+  top: 8em;
+  perspective: 700px;
 }
 
-@media screen and (max-width: 900px){
+.infoname {
+  font-family: "Gravity-Bold";
+  padding: 10%;
+  font-size: 9vw;
+  letter-spacing: 3px;
+  color: black;
+  text-align: center;
+  padding-bottom: 1rem;
+  transform: translate3d( 0, 0, 100px);
+  z-index: 2;
+}
 
+.info h2:hover{ 
+  text-shadow: 20px 20px 20px #37474F;
+}
+
+.info:hover{
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0);
+}
+
+.descrip p{
+  text-align: center;
+  font-family: karla, serif;
+  font-weight: 300;
+  position: relative;
+  color: black;
+  top: -30%;
+  left: 0;
+  padding: 0 5% 10% 5%;
+  font-size: 5vw;
+}
+
+.me-photo {
+  z-index: -1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.me-photo img{
+  transform: translate3d(0, 0, -700%);
+  width: 50%;
+  opacity: 0.8;
+  border-radius: 10rem;
+}
+}
+
+
+@media screen and (max-width: 900px){
   .about-bg{
-    background: url('../images/jesusrafaell.png');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: scroll;
-    display: flex;
+    background: white;
     align-items: center; 
     justify-content: center;
     flex-direction: column;   
     height: 100%;
   }
 
+  .me-photo {
+    display: none;
+  }
+
   .info{
+    top: 30%;
+    position: absolute;
     text-align: center;
     padding-top: 5rem;
     height: 40%;

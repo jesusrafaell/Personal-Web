@@ -1,6 +1,7 @@
 import React  from 'react'
 import '../styles/about.css'
 import useScroll from '../hooks/useScroll'
+import mePhoto from '../images/jesusrafaell.png'
 
 const About = () => {
 
@@ -13,6 +14,9 @@ const About = () => {
         <div id="descrip" className="descrip">
           <p>I'm a web designer and front-end developer from Venezuela.</p>
           <p></p>
+        </div>
+        <div className="me-photo">
+          <img src={mePhoto} alt="jesus" />
         </div>
       </div>
     </div>

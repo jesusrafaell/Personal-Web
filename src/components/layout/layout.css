@@ -40,6 +40,7 @@ html,body{
     position: absolute;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 h1, h2{
@@ -59,13 +60,13 @@ h3, h4 {
 
 
 footer{
-    width: 100%;
+    width: 100vw;
     background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;   
-    height: 35em;
+    height: 40em;
 }
 
 /*
@@ -131,16 +132,17 @@ footer{
 }
 
 @media screen and (max-width: 900px){
-    /*Problem animation in mobible*/
-    html, body{
+    /*Problem animation index in mobible*/
+    html,body{
         overflow-x: hidden;
     }
+
     .fa{
-        padding: 1vw;
+        padding: 0.2vw;
     }
     .fa svg{
-        width: 5vw;
-        height: 5vw;
+        width: 4vw;
+        height: 4vw;
         transform: scale(1.7);
         transition: 0.4s linear;
         fill: #fff;

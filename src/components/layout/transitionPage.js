@@ -20,19 +20,10 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     .set(".page", { overflow: "hidden" })
 
     if(local === 'index'){
-      t1.set(node, {
-        x: '100%',
+      t1.from(node, 2,{
+        y: '-100%',
         ease: Power3.InOut,
         opacity: 0,
-        stagger: {
-          amount: 0.2
-        },
-        duration: 0
-      })
-      t1.to(node, 2,{
-        x: '0',
-        ease: Power3.InOut,
-        opacity: 1,
         stagger: {
           amount: 0.2
         },
@@ -121,9 +112,9 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     if(local === 'index'){
       const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
       const windowGlobal = typeof window !== 'undefined' && window
-      const maxH = windowGlobal.innerHeight / 2
-      const maxW = windowGlobal.innerWidth / 2
-      const min = 10
+      const maxH = windowGlobal.innerHeight / 3
+      const maxW = windowGlobal.innerWidth / 3
+      const min = 20 
       letter.forEach((acc) => {
         let sig = Math.random() < 0.5 ? -1 : 1
         let sig2 = Math.random() < 0.5 ? -1 : 1
@@ -132,8 +123,8 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         let auxRo = (Math.random() * 99 + 1) * sig
         gsap.to(`#${acc}`, 1, {
           delay: .7,
+          scale: 0.5,
           rotation: auxRo,
-          position: 'flex',
           y: `${auY}%`,
           x: `${auX}%`,
           ease: Power3.easeOut,

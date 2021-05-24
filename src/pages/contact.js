@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { navigate } from 'gatsby'
 import '../styles/contact.css'
+import emailjs from 'emailjs-com'
 
 const Contact = () => {
 
@@ -29,7 +30,7 @@ const Contact = () => {
       console.log('error requierd camp')
       return;
     }
-    //emailjs.send('service_oilontb', 'template_md4gggv', mail,'user_YkU3vyn47n6EO3BWdkRIx')
+    emailjs.send('service_oilontb', 'template_md4gggv', mail,'user_YkU3vyn47n6EO3BWdkRIx')
     saveSend(true)
     setTimeout(() => {
       console.log('hola')

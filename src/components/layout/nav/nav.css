@@ -84,15 +84,18 @@ header{
         padding: 15px 30px;
     }
 
-    .nav-software div.navtitle a{
+    .nav-software div.navtitle a,
+    .nav-about div.navtitle a{
         color: #000;
     }
 
+    .nav-about div.main_list ul li a,
     .nav-software div.main_list ul li a{
         color: #000;
     }
 
     .affix {
+        background-color: #fff;
         height: 2.5rem;
         padding-top: 0.1em;
         display: flex;
@@ -106,18 +109,15 @@ header{
     .affix div.navtitle a,
     .affix div.main_list ul li a{
         text-decoration: none;
-        color: #fff;
+        color: #000;
     }
 }
 
 @media screen and (max-width:900px) {
+
     .nav{
         /*position: absolute;*/
         background-color: black;
-    }
-
-    .nav-index,.nav-about{
-        background:none;
     }
 
     .navTrigger {
