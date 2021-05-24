@@ -12,13 +12,9 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
       ...statePage.stateTransitionPage,
       on: true
     })
-
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
-
     const t1 = gsap.timeline({ repeat: false })
-
     .set(".page", { overflow: "hidden" })
-
     if(local === 'index'){
       t1.from(node, 2,{
         y: '-100%',
