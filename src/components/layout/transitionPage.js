@@ -10,7 +10,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
   const onEnter = node => {
     statePage.setStateTransitionPage({
       ...statePage.stateTransitionPage,
-      on: true
+      on: true,
     })
     const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
     const t1 = gsap.timeline({ repeat: false })
@@ -25,14 +25,12 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         },
         duration: 1.5
       })
-      t1.add(() =>{
-        statePage.setStateTransitionPage({
-          on: false,
-          end: local
-        })
-      })
-    }
-    else if(local === 'about'){
+      statePage.setStateTransitionPage({
+        ...statePage.stateTransitionPage,
+        end: local
+       })
+      }
+        else if(local === 'about'){
       t1.set(node, {
         y: '110%',
         ease: Power3.InOut,
@@ -100,7 +98,10 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         stateTransitionNav.setTransitionNav(false)
       )
     })
-    t1.set(".page", { overflow: "visible" })
+    t1.set(".page", { 
+      delay: local === 'index' ? 3 : 0, 
+      overflow: "visible" 
+    })
   }
 
   const onExit = node => {
@@ -109,8 +110,8 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
       const letter = ['s1','s2','s3','s4','s5','s6','s7','s8','x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
       const windowGlobal = typeof window !== 'undefined' && window
       const maxH = windowGlobal.innerHeight / 3
-      const maxW = windowGlobal.innerWidth / 3
-      const min = 20 
+      const maxW = windowGlobal.innerWidth / 2
+      const min = 40 
       letter.forEach((acc) => {
         let sig = Math.random() < 0.5 ? -1 : 1
         let sig2 = Math.random() < 0.5 ? -1 : 1

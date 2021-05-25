@@ -35,10 +35,10 @@ const Nav = ({siteTitle, location}) => {
 
     const handleClickNav= e =>{
         e.preventDefault()
-        if(transitionNav){
+        if(transitionNav || stateTransitionPage.on){
             return
         }
-        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 3s linear' })
+        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 3.5s linear' })
         if(`${location}`=== e.target.name){
             return 
         }else{
