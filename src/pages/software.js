@@ -8,18 +8,18 @@ const Software = () => {
   const [order, saveOrder] = useState('');
 
   const getData = async () => {
-      const url='https://api.github.com/users/jesusrafaell/repos'
-      try{
-        await fetch(url)
-          .then(res => res.json())
-          .then(repos => {
-            repos.map(pro => pro.description && (pro.info = pro.description.split("&")))
-            saveData(repos)
-          })
-      }catch(e){
-        console.log(e)
-      }
+    const url='https://api.github.com/users/jesusrafaell/repos'
+    try{
+      await fetch(url)
+        .then(res => res.json())
+        .then(repos => {
+          repos.map(pro => pro.description && (pro.info = pro.description.split("&")))
+          saveData(repos)
+        })
+    }catch(e){
+      console.log(e)
     }
+  }
 
   useEffect(() => {
     getData()

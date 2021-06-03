@@ -35,9 +35,9 @@
 
 .containerIndex .card .card-bg {
   position: absolute;
-  background: url(../images/space.jpg) no-repeat center top;
   justify-content: center;
   align-items: center;
+  transform: translate3d(0, 0, -50vw);
   width: 100%;
   padding: 0;
   margin: 0;
@@ -45,13 +45,8 @@
   margin-right: auto;
   color: #fff;
   color: rgb(255, 255, 255);
-  transform: translate3d(0, 0, -50vw);
   top: 20%;
-  border-radius: 2em;
-  box-shadow:
-    1em 1em 2em -3em rgba(0,0,0,.5),
-    0.5em 1.5em 3em -2.5em rgba(255,255,255,.5);
-  filter: alpha(opacity=0);
+  opacity: 0;
 }
 
 .containerIndex .card .card-bg img{
@@ -60,11 +55,11 @@
   padding: 0;
   margin: 0;
   transform: translate(50%, -20%);
-  -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7));
-  -moz-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7));
-  -ms-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7)); 
-  -o-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7));
-  filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7)); 
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(255,255,255,.7));
+  -moz-filter: drop-shadow(0px 0px 10px rgba(255,255,255,.7));
+  -ms-filter: drop-shadow(0px 0px 10px rgba(255,255,255,.7)); 
+  -o-filter: drop-shadow(0px 0px 10px rgba(255,255,255,.7));
+  filter: drop-shadow(0px 0px 10px rgba(255,255,255,.7)); 
 }
 
 .containerIndex .containerTitle{
@@ -79,13 +74,13 @@
   color: #000;
   transform: translate3d(0, 0, 40px);
   top: 40%;
-  left: 10%;
+  left: 20%;
   right: 0;
   filter: alpha(opacity=0);
 }
 
 .containerTitle .titlemain1,.containerTitle .titlemain2 {
-  font-size: 8vw;
+  font-size: 6vw;
   font-family: "Gravity-Bold";
   position: absolute;
   margin-left: auto;
@@ -108,6 +103,12 @@
 .containerTitle .titlemain1 span,
 .containerTitle .titlemain2 span{
   float: left;
+  opacity: 0;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7));
+  -moz-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7));
+  -ms-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7)); 
+  -o-filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7));
+  filter: drop-shadow(0px 0px 10px rgba(0,0,0,.7)); 
 }
 
 /*
@@ -123,7 +124,7 @@
     height: 40%;
   }
   .containerIndex .card .card-bg img{
-    width: 50%;
+    width: 60%;
   }
   .containerTitle .titlemain1,.containerTitle .titlemain2 {
     font-size: 10vw;

@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useContext, useRef, useMemo } from 'react'
+import React, {useState, useEffect, useContext, useMemo } from 'react'
 import { gsap, Power3 } from "gsap"
-import '../styles/index.css'
-import groot from '../images/groot.png'
-import useScroll from '../hooks/useScroll'
 
 import { GlobalStateContext } from '../context/GlobalContextProvider'
+import useScroll from '../hooks/useScroll'
+import groot from '../images/groot.png'
+import '../styles/index.css'
 
 const IndexPage = () => {
 
@@ -17,13 +17,18 @@ const IndexPage = () => {
   const { 
     setStateTransitionPage, 
   } = useContext(GlobalStateContext)
+
+  const [effectComplete, setEffectComplete] = useState(false)
+
+  const [restartTime, setRestartTime] = useState(false) 
+
   const { scrollY } = useScroll()
 
   const letter = ['s1','s2','s3','s4','s5','s6','s7','s8', 'x1','x2','x3','x4','x5','x6','x7','x8', 'x9']
 
   const isMobile = () => {
-      const ua = navigator.userAgent;
-      return /Android|Mobi/i.test(ua);
+    const ua = navigator.userAgent;
+    return /Android|Mobi/i.test(ua);
   }
 
   const randomN = (max, min) => {
@@ -32,11 +37,9 @@ const IndexPage = () => {
     return num
   }
 
-  const [effectComplete, setEffectComplete] = useState(false)
-
-  const [restartTime, setRestartTime] = useState(false) 
-
-  const tm = useMemo(() => gsap.timeline({paused: true, onReverseComplete:() => setEffectComplete(true)}) , [restartTime])
+  const tm = useMemo(() => gsap.timeline({paused: true, onReverseComplete:() => setEffectComplete(true)}) 
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  ,[restartTime])
 
   useEffect(() => {
     let maxH = window.innerHeight > window.innerWidth ? window.innerHeight : window.innerHeight/4
@@ -90,30 +93,31 @@ const IndexPage = () => {
     const maxH = window.innerHeight > window.innerWidth ? window.innerHeight : window.innerHeight/4
     const maxW = window.innerWidth > window.innerHeight ? window.innerWidth/2 : window.innerWidth/4
     const min = window.innerWidth > window.innerHeight ? 40 : 20
-    createRandomList(maxH, maxW, 20)
+    createRandomList(maxH, maxW, min)
     const t1 = gsap.timeline()
     t1.set('#groot',{
-      opacity: 0,
-    })
-    .from('.card-bg', 1.5, {
       delay: 2,
       opacity: 0,
-      ease: Power3.easeIn,
       onComplete: ()=> {
         setTransTitle({
           ...transTitle,
           for: 'initial'
         })
-        t1.to('#groot', {
-          opacity: 1,
-          onComplete: () => {
-            setTransTitle({
-              ...transTitle,
-              on: false
-            })
-          }
+      }   
+    })
+    .to('.card-bg', 1, {
+      scale: 1,
+      opacity: 1,
+      ease: Power3.easeIn,
+    })
+    .from('#groot', 1, {
+      opacity: 0,
+      onComplete: () => {
+        setTransTitle({
+          ...transTitle,
+          on: false
         })
-      }    
+      }
     })
     .add(gsap.delayedCall(2,
       () => {
@@ -128,8 +132,10 @@ const IndexPage = () => {
 
   const createRandomList = (maxH, maxW, min) => {
     letter.forEach((acc, curr) => {
-      let x = randomN(maxW, min) 
-      let y = randomN(maxH, min) 
+      let auxY = randomN(maxH, min)
+      let y = (maxH > maxW && auxY < 0 ) ? auxY/2 : auxY
+      let auxX = randomN(maxH, min)
+      let x = (maxH > maxW) ? auxX/2 : auxX
       let r = randomN(100, 1) 
       let style = [x, y, r]
       setPositions(state => ({
@@ -141,11 +147,15 @@ const IndexPage = () => {
 
   const letterStyle = (acc) =>{
     if(!transTitle.on)
-      return
+      return {opacity: 1}
     if(transTitle.for === ''){
       return AnimationTitleOn(acc, 0)
     }else if(transTitle.for === 'initial'){
       return AnimationTitleOff(2)
+    }else{
+      return {
+        opacity: 1
+      }
     }
   }
 
@@ -154,6 +164,7 @@ const IndexPage = () => {
       return
     const [x, y, r] = positions.[acc]
     return {
+      opacity: 1,
       transition: `all ${time}s linear`,
       transform: `
       translate(${x}%,${y}%) 
@@ -165,6 +176,7 @@ const IndexPage = () => {
 
   const AnimationTitleOff = (time) =>{
     return {
+      opacity: 1,
       transition: `${time}s ease-in`,
       transform: `
       translate(0,0) 
@@ -187,7 +199,7 @@ const IndexPage = () => {
   }, [])
 
   return(
-    <div className="indexPage">
+    <section className="indexPage">
       <div className="containerIndex">
         <div className="card">
           <div className="card-bg" >
@@ -218,7 +230,7 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

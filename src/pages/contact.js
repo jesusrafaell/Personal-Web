@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import emailjs from 'emailjs-com'
 import { navigate } from 'gatsby'
 import '../styles/contact.css'
-import emailjs from 'emailjs-com'
 
 const Contact = () => {
 

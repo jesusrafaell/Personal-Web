@@ -9,12 +9,11 @@ import './nav.css'
 
 const Nav = ({siteTitle, location}) => { 
 
-    //const local = location === '/' ? 'index' : `${location.substring(1, location.length - 1)}`
-
     const { 
         stateTransitionPage, 
         transitionNav, 
-        setTransitionNav} = useContext(GlobalStateContext)
+        setTransitionNav
+    } = useContext(GlobalStateContext)
 
     const [navOpen, setnavOpen] = useState(false)
     
@@ -23,9 +22,8 @@ const Nav = ({siteTitle, location}) => {
     const [scrollYOld, setscrollYOld] = useState(scrollY);
 
     const handleClick = () => {
-        if(transitionNav){
+        if(transitionNav)
             return
-        }
         setscrollYOld(scrollY)
         if(navOpen)
             setnavOpen(false)

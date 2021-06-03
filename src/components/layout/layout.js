@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import Helmet from 'react-helmet'
 
-import Transition from './transitionPage'
-import Header from './header'
-import icon from '../../images/icons/icon-32x32.ico'
-import './layout.css'
-import Cursor from './cursor/cursorNav'
-
 import { GlobalStateContext } from '../../context/GlobalContextProvider'
+
+import icon from '../../images/icons/icon-32x32.ico'
+import Transition from '../pageTransition'
+import Cursor from './cursor/cursorNav'
+import Header from './header'
+import './layout.css'
 
 const Layout = ({children,location}) => {
 

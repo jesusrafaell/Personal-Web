@@ -1,4 +1,5 @@
 import React  from 'react'
+
 import linkIcon from '../images/icons/link.png'
 
 const Project = ({project}) => {

@@ -1,7 +1,8 @@
 import React  from 'react'
-import '../styles/about.css'
-import useScroll from '../hooks/useScroll'
+
 import mePhoto from '../images/jesusrafaell.png'
+import useScroll from '../hooks/useScroll'
+import '../styles/about.css'
 
 const About = () => {
 
