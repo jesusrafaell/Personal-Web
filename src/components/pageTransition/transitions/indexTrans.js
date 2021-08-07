@@ -1,14 +1,15 @@
 import { Power3 } from "gsap";
 
 export const homeOnEnter = (node, tl) => {
-  tl.from(node, 2,{
+  tl.from('.indexPage', 2,{
     y: '-100%',
-    ease: Power3.InOut,
     opacity: 0,
+    ease: Power3.InOut,
     stagger: {
       amount: 0.2
     },
-    duration: 1.5
+    delay: 1,
+    duration: 2 
   })
 }
 
@@ -21,7 +22,7 @@ export const homeOnExit = (node, tl) => {
     x: `0`,
     ease: Power3.easeOut,
   })
-  tl.to(node, {
+  tl.to('.indexPage', {
     y: '-100%',
     ease: Power3.easeOut,
     stagger: {

@@ -8,8 +8,8 @@ const Contact = () => {
   const [mail, saveMail] = useState({
     name: '',
     email: '',
+    reason: '',
     subject: '',
-    reason: 'hi',
     message: '',
   })
 
@@ -33,7 +33,6 @@ const Contact = () => {
     emailjs.send('service_oilontb', 'template_md4gggv', mail,'user_YkU3vyn47n6EO3BWdkRIx')
     saveSend(true)
     setTimeout(() => {
-      console.log('hola')
       saveSend(false)
       navigate('/')
     }, 3000) 
@@ -83,7 +82,8 @@ const Contact = () => {
                   id="message" 
                   className="textarea uno" 
                   name="message" 
-                  placeholder="Enter your message here...">
+                  placeholder="Enter your message here..."
+                >
                 </textarea>
                 <button type="submit" id="submit" className="cursorEffect submit uno">Submit</button>
             </form>

@@ -1,114 +1,131 @@
-.about-bg{
+.aboutPage{
   background: white;
   background-position: center top;
   background-size:cover;
   justify-content: center;
   text-align: center;
   align-items: center;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   user-select: none;
 }
 
 @media screen and (min-width: 901px){
-.info{
-  position: absolute;
-  text-align: center;
-  align-items: center;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  transition: all .5s;
-  margin: auto;
-  top: 8em;
-  perspective: 700px;
-}
+  .info{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    transition: all .5s;
+    margin: auto;
+    top: 0;
+    perspective: 700px;
+  }
 
-.infoname {
-  font-family: "Gravity-Bold";
-  padding: 10%;
-  font-size: 9vw;
-  letter-spacing: 3px;
-  color: black;
-  text-align: center;
-  padding-bottom: 1rem;
-  transform: translate3d( 0, 0, 100px);
-  z-index: 2;
-}
+  .info h2:hover{ 
+    text-shadow: 20px 20px 20px #37474F;
+  }
 
-.info h2:hover{ 
-  text-shadow: 20px 20px 20px #37474F;
-}
+  .info:hover{
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0);
+  }
+  .descrip {
+    position: absolute;
+    width: 50%;
+    top: 22%;
+    left: 5%;
+  }
 
-.info:hover{
-  box-shadow: none;
-  background: rgba(255, 255, 255, 0);
-}
+  .descrip p{
+    font-family: "Gravity-Regular";
+    text-align: center;
+    font-weight: 200;
+    color: black;
+    font-size: 3vw;
+    text-align: center;
+  }
 
-.descrip p{
-  text-align: center;
-  font-family: karla, serif;
-  font-weight: 300;
-  position: relative;
-  color: black;
-  top: -30%;
-  left: 0;
-  padding: 0 5% 10% 5%;
-  font-size: 5vw;
-}
+  .me-photo {
+    z-index: -1;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20%;
+    height: 70%;
+    width: 50%;
+    left: 50%;
+    right: 0;
+    text-align: center;
+  }
 
-.me-photo {
-  z-index: -1;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  right: 0;
-  text-align: center;
+  .me-photo img{
+    height: 100%;
+    opacity: 0.95;
+  }
+  .backPhoto {
+    position:absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(top, white 46%, #3056F2 30%);
+  }
 }
-
-.me-photo img{
-  transform: translate3d(0, 0, -700%);
-  width: 50%;
-  opacity: 0.8;
-  border-radius: 10rem;
-}
-}
-
 
 @media screen and (max-width: 900px){
-  .about-bg{
+  .aboutPage{
     background: #000;
     align-items: center; 
     justify-content: center;
     flex-direction: column;   
     height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(top, #8C8C8C 46%, #3056F2 30%);
   }
 
   .me-photo {
-    display: none;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    text-align: center;
+  }
+
+  .me-photo img{
+    height: 100%;
+    opacity: 0.95;
   }
 
   .info{
-    top: 30%;
+    top: 20%;
     position: absolute;
     text-align: center;
-    padding-top: 5rem;
-    height: 40%;
-    background: rgba(0, 0, 0, 0.5);
+    height: 70%;
     width: 100%;
   }
 
-  .infoname{
-    color: white;
-    font-family: "Gravity-Regular";
-    font-size: 3rem;
-    padding-bottom: 2rem;
+  .descrip{
+    position: absolute;
+    top: 40%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
+
   .descrip p {
+    font-family: "Gravity-Regular";
+    font-size: 5vw;
     color: white;
+  }
+
+  .backPhoto {
+    display: none;
   }
 
 }

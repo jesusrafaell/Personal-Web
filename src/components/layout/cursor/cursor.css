@@ -10,6 +10,11 @@
   transition-property: background-color, opacity, transform, mix-blend-mode;
   z-index: 9999;
   mix-blend-mode: difference;
+  opacity: 0;
+}
+
+.cursor--on {
+  opacity: 1;
 }
 
 .cursor--hidden {

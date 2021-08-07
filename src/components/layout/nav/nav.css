@@ -66,7 +66,8 @@ header{
 }
 
 .nav div.main_list ul li a:hover {
-    color: #00FFFF;
+    /*color: #00FFFF;*/
+    color: red;
 }
 
 .nav div.main_list ul li a.selected {

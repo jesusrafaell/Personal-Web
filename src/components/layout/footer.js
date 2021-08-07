@@ -11,7 +11,7 @@ const Footer = ({location}) => {
     }
 
     return(
-    <footer className="footer container-fluid"> 
+    <footer className="footer container-fluid">
             <div className="sociallinks">
                 <a href="https://www.instagram.com/jesusrafaell/" target="_blank" rel="noopener noreferrer">
                     <span className="fa ig">

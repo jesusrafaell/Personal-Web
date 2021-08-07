@@ -9,6 +9,7 @@ const isMobile = () => {
 
 const Cursor = ({location}) => {
 
+  const [active, setActive] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
@@ -37,6 +38,7 @@ const Cursor = ({location}) => {
   }, [addEventListeners, removeEventListeners, location]);
 
   const onMouseMove = (e) => {
+    setActive(true);
     setPosition({ x: e.clientX, y: e.clientY });
   };
 
@@ -72,6 +74,7 @@ const Cursor = ({location}) => {
   };
 
   const cursorClasses = classNames("cursor", {
+    "cursor--on": active,
     "cursor--clicked": clicked,
     "cursor--hidden": hidden,
     "cursor--link-hovered": linkHovered
@@ -81,8 +84,11 @@ const Cursor = ({location}) => {
 
   return (
     <div
-        className={cursorClasses}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
+      className={cursorClasses}
+      style={{ 
+        left: `${position.x}px`, 
+        top: `${position.y}px` ,
+      }}
     />
   )
 }

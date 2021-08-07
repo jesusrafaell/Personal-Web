@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Helmet from 'react-helmet'
 
 import { GlobalStateContext } from '../../context/GlobalContextProvider'
@@ -10,6 +10,11 @@ import Header from './header'
 import './layout.css'
 
 const Layout = ({children,location}) => {
+
+  //Go Top when relaod page
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
 
   const { 
     stateTransitionPage, 

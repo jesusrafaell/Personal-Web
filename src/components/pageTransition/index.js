@@ -2,13 +2,13 @@ import React from 'react'
 import { TransitionGroup, Transition as ReactTransition, } from "react-transition-group"
 import { Power3, gsap } from "gsap";
 
-import { aboutOnEnter, aboutOnExit } from './transitions/aboutTrans'
 import { homeOnEnter, homeOnExit } from './transitions/indexTrans'
+import { aboutOnEnter, aboutOnExit } from './transitions/aboutTrans'
 import Footer from '../layout/footer'
 
 const transitionPage = ({children, location, stateTransitionNav, statePage}) => {
 
-  const local = location.pathname === '/' ? 'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
+  const local = location.pathname === '/' ?  'index' : `${location.pathname.substring(1, location.pathname.length - 1)}`
 
   const onEnter = node => {
     statePage.setStateTransitionPage({
@@ -17,7 +17,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
     })
     //const childrenNode = [node.children[0].firstElementChild, node.children[0].lastElementChild]
     const t1 = gsap.timeline({ repeat: false })
-    .set(".page", { overflow: "hidden" })
+    //.set(".page", { overflow: "visible" })
     if (local === 'index'){
       homeOnEnter(node, t1)
     }else if (local === 'about'){
@@ -65,10 +65,13 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
         stateTransitionNav.setTransitionNav(false)
       }
     })
+    //aviable scroll 
+    /*
     .set(".page", { 
-      delay: 1, 
+      delay: (local !== 'index') ? 0 : 0.5, 
       overflow: "visible" 
     })
+    */
   }
 
   const onExit = node => {
@@ -125,7 +128,7 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
           <div className={`page page-${local}`}>
             {children}
             {(local !== 'software') ?
-              <Footer location={location} className="Footer"/>
+              <Footer location={location}/>
             :
               null
             }
