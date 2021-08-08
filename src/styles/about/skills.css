@@ -1,12 +1,9 @@
-.skillsPage{
-  background: white;
-  background-position: center top;
-  background-size:cover;
+.skillsPage{ background: white; background-position: center top; background-size:cover;
   justify-content: center;
   text-align: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: auto;
   user-select: none;
   /*
 	 background: #3056F2;
@@ -16,6 +13,7 @@
 
 .titleSkills{
 	padding-top: 6em;
+	margin-bottom: 2%;
 }
 
 .titleSkills h2{
@@ -24,6 +22,7 @@
 	text-align: center;
 }
 
+/*
 
 .grid{
   display: grid;
@@ -42,7 +41,6 @@
 	font-weight: 400;	
 	transition: .15s ease;
 	display: inline-block;
-/*	background: blue; */
 	overflow: hidden;
 	margin: 2vh;
 }
@@ -59,13 +57,11 @@
 }
 
 .item:hover > .item-content{
-	visibility: visible;
 	transform: translate(5%, -200%);
 	transition: 0.5s ease-in-out;
 }
 
 .item-content {
-	visibility: hidden;
 	transition: 0.5s ease-in-out;
 	transition: 0.5s ease-in;
 }
@@ -95,6 +91,8 @@
 	display: block;
 }
 
+*/
+
 @media all and (max-width: 600px) {
 	.skillsPage{
 		height: auto;
@@ -112,3 +110,107 @@
 	}
 }
 
+
+.cards {
+	display: grid;
+	gird-templae-columns: 1fr 1fr;
+	grid-template-arrows: repeat(auto, 350px);
+}
+
+.item {
+	position: relative;
+	border-radius: 10px;
+	margin: 1% 2%;
+}
+
+.item-image {
+	width: 15%;
+	max-width: 150px;
+}
+
+.item-image img{
+	width: 100%;
+}
+
+.item-content {
+	left: 0;
+}
+
+.item-text{
+	position: absolute;
+	left: 0;
+}
+
+.item-text h2{
+	font-size: clamp(1em, 3vw, 1.3em);
+}
+
+.item-content {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 20%;
+	width: 50%;
+}
+
+.item-text p{
+	font-size: clamp(0.4em, 3vw, 1.3em);
+}
+
+.skill {
+	position: absolute;
+	margin: 1em 0;
+	width: 50%; 
+}
+
+.skill-outer-bar, .skill-inner-bar {
+	height: .75em;
+}
+
+.skill-outer-bar {
+	margin-top: 1em;
+	background: #202020;
+}
+
+.skill-inner-bar {
+  animation: fillBar 5s forwards;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+	max-width: 100%;
+	width: 0;
+}
+
+.skill-inner-bar-Html, .skill-inner-bar-JavaScript{
+  background: #F8A518;
+}
+.skill-inner-bar-React {
+  background: #18A6F8;
+}
+.skill-inner-bar-Gsap {
+  background: #F8DD18;
+}
+.skill-inner-bar-Css3{
+  background: #F818B5;
+}
+.skill-inner-bar-Node{
+  background: #8718F8;
+}
+
+@keyframes fillBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+@media screen and (max-width:900px) {
+	.skill{
+		top: 10%;
+	}
+}
+
+.logo-React {
+	width: 20%;
+	margin-left: -4vw;
+	max-width: 300px;
+}

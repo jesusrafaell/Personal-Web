@@ -76,8 +76,8 @@
     transition: all .5s;
     margin: auto;
     top: 0;
-    perspective: 700px;
   }
+
   .descrip {
     position: absolute;
     width: 40%;
@@ -85,7 +85,7 @@
     left: 20%;
   }
 
-  .descrip p{
+  .descrip p {
     font-family: "Gravity-Bold";
     font-weight: 200;
     padding: 0;
@@ -95,17 +95,21 @@
     text-align: left;
   }
 
-  #sub1{
+  #sub1 {
     font-size: 180%; 
     margin-top: 10%;
   }
 
-  #sub2{
+  #sub2 {
     color: #3056F2;
+    font-size: 120%;
   } 
 
+  #line1 {
+    padding-bottom: 1vh;
+  }
+
   .me-photo {
-    z-index: -1;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -115,6 +119,7 @@
     left: 50%;
     right: 0;
     text-align: center;
+    max-height: 900px;
   }
 
   .me-photo img{
@@ -138,7 +143,7 @@
     flex-direction: column;   
     height: 100%;
     width: 100%;
-    background: -webkit-linear-gradient(top, #8C8C8C 56.2%, #3056F2 30%);
+    background: -webkit-linear-gradient(top, #8D8D8D 46.1%, #3056F2 30%);
   }
 
   .me-photo {
@@ -154,11 +159,11 @@
 
   .me-photo img{
     height: 100%;
-    opacity: 0.7;
+    overflow-x: hidden;
   }
 
   .info{
-    top: 30%;
+    top: 20%;
     position: absolute;
     height: 70%;
     width: 100%;
@@ -192,3 +197,4 @@
   }
 
 }
+

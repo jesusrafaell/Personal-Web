@@ -1,7 +1,7 @@
 import { Power3 } from "gsap";
 
 export const aboutOnEnter = (node, tl) => {
-  tl.from('.aboutPage', 2, {
+  tl.from(['.aboutPage', '.skillsPage'], 2, {
     delay: 1,
     y: '100%',
     ease: Power3.InOut,
@@ -25,7 +25,7 @@ export const aboutOnExit = (node, tl) => {
   tl.to('.backPhoto', 0.7, {
     x: '-100%',
   })
-  tl.to('.aboutPage', {
+  tl.to(['.aboutPage', '.skillsPage'], {
     x: '-100%',
     ease: Power3.easeOut,
     stagger: {

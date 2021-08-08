@@ -33,10 +33,10 @@ const Nav = ({siteTitle, location}) => {
 
     const handleClickNav= e =>{
         e.preventDefault()
+        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 3.5s linear' })
         if(transitionNav || stateTransitionPage.on){
             return
         }
-        window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 3.5s linear' })
         if(`${location}`=== e.target.name){
             return 
         }else{
@@ -65,11 +65,10 @@ const Nav = ({siteTitle, location}) => {
                     )
                 })
             }else{
-                navigate(`${e.target.name}`)
+                setTimeout(() => {
+                    navigate(`${e.target.name}`)
+                }, 1500)
             }
-            tl.to('.nav a', {
-                //cursor: 'no-drop',
-            })
         }
     }
 

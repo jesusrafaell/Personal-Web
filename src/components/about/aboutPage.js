@@ -31,9 +31,9 @@ const AboutPage = ({handleScrollSkill, refe }) => {
              <img src={jesusAbout} alt="jesusrafaell" className="cursorEffect"/>
            </div>
            <div id="descrip" className="descrip">
-              <p>Hello, <span id="sub3">My name is</span></p>
+              <p id="line1"><span id="sub2">Hello</span>, My name is</p>
               <p><span id="sub1">Jesus Rafaell</span></p>
-              <p>I'm a Web <span id="sub2" ref={textRef}></span></p>
+              <p>I'm a <span id="sub2">Web</span> <span  ref={textRef}></span></p>
            </div>
          </div>
          <div id="arrow" className="cursorEffect">

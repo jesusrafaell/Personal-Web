@@ -113,13 +113,12 @@ const transitionPage = ({children, location, stateTransitionNav, statePage}) => 
 
   return (
     <>
-      <div className='page-transition-black'></div>
       <TransitionGroup>
         <ReactTransition
           key={location.pathname}
           timeout={{
             enter: 4000,
-            exit: 3000
+            exit: 4000
           }}
           onEntering={onEnter}
           onExit={onExit}
