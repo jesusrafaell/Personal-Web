@@ -63,11 +63,12 @@ h3, h4 {
 footer{
     width: 100vw;
     background: #000;
+    background: #0C0C0C;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;   
-    height: 40em;
+    height: 30em;
 }
 
 /*

@@ -8,5 +8,107 @@
   width: 100%;
   height: 100%;
   user-select: none;
-  background: #3056F2;
+  /*
+	 background: #3056F2;
+	 * */
+  background: #0C0C0C;
 }
+
+.titleSkills{
+	padding-top: 6em;
+}
+
+.titleSkills h2{
+	font-size: 4vh;
+	font-family: "Gravity-Bold";
+	text-align: center;
+}
+
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.item{
+	border-radius: 0.25rem;
+	text-decoration: none;
+	font-weight: 400;	
+	transition: .15s ease;
+	display: inline-block;
+/*	background: blue; */
+	overflow: hidden;
+	margin: 2vh;
+}
+
+
+.item-image{
+	border-radius: 0.25rem 0.25rem 0 0;
+	overflow: hidden;
+	transition: 0.5s ease-in;
+}
+
+.item:hover > .item-image{
+	transition: 0.5s ease-in-out;
+}
+
+.item:hover > .item-content{
+	visibility: visible;
+	transform: translate(5%, -200%);
+	transition: 0.5s ease-in-out;
+}
+
+.item-content {
+	visibility: hidden;
+	transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in;
+}
+
+.item-image img {
+	width: 13vh;
+	display: block;
+}
+
+.gridTop{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.sub-item{
+	display: flex;
+	padding: 3%;
+}
+
+.gridTop .item{
+	font-weight: 400;	
+}
+
+.gridTop .item-image img{
+	width: 30vh;
+	display: block;
+}
+
+@media all and (max-width: 600px) {
+	.skillsPage{
+		height: auto;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 1.5rem;
+	}
+
+	.grid-col {
+		& > * + * {
+			margin-top: 1.5rem;
+		}
+	}
+}
+
