@@ -1,0 +1,12 @@
+.skillsPage{
+  background: white;
+  background-position: center top;
+  background-size:cover;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  background: #3056F2;
+}

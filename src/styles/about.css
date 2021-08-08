@@ -10,6 +10,61 @@
   user-select: none;
 }
 
+#arrow{
+  position: absolute;
+  display: inline-blick;
+  text-align: center;
+  left: 50%;
+  top: 90%;
+}
+
+.arrowName{
+  position: absolute;
+	width: 20px;
+	height: 20px;
+  font-family: "Gravity-Regular";
+  color: white;
+  margin: 0;
+  left: -2%;
+  padding: 0;
+	margin: -20px;
+}
+
+.box span {
+	width: 20px;
+	height: 20px;
+  display: block;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	transform: rotate(45deg);
+	margin: -10px;
+	animation: animate 2s infinite;
+}
+
+.box span:nth-child(2) {
+	animation-delay: -0.2s;
+}
+
+.box span:nth-child(3) {
+	animation-delay: -0.4s;
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+		transform: rotate(45deg) translate(10px, 10px);
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
+
+
 @media screen and (min-width: 901px){
   .info{
     position: absolute;
@@ -23,30 +78,31 @@
     top: 0;
     perspective: 700px;
   }
-
-  .info h2:hover{ 
-    text-shadow: 20px 20px 20px #37474F;
-  }
-
-  .info:hover{
-    box-shadow: none;
-    background: rgba(255, 255, 255, 0);
-  }
   .descrip {
     position: absolute;
-    width: 50%;
-    top: 22%;
-    left: 5%;
+    width: 40%;
+    top: 20%;
+    left: 20%;
   }
 
   .descrip p{
-    font-family: "Gravity-Regular";
-    text-align: center;
+    font-family: "Gravity-Bold";
     font-weight: 200;
+    padding: 0;
+    margin: 0;
     color: black;
-    font-size: 3vw;
-    text-align: center;
+    font-size: 190%;
+    text-align: left;
   }
+
+  #sub1{
+    font-size: 180%; 
+    margin-top: 10%;
+  }
+
+  #sub2{
+    color: #3056F2;
+  } 
 
   .me-photo {
     z-index: -1;
@@ -82,7 +138,7 @@
     flex-direction: column;   
     height: 100%;
     width: 100%;
-    background: -webkit-linear-gradient(top, #8C8C8C 46%, #3056F2 30%);
+    background: -webkit-linear-gradient(top, #8C8C8C 56.2%, #3056F2 30%);
   }
 
   .me-photo {
@@ -98,30 +154,37 @@
 
   .me-photo img{
     height: 100%;
-    opacity: 0.95;
+    opacity: 0.7;
   }
 
   .info{
-    top: 20%;
+    top: 30%;
     position: absolute;
-    text-align: center;
     height: 70%;
     width: 100%;
   }
 
   .descrip{
+    text-align: left;
+    left: 10%;
     position: absolute;
-    top: 40%;
+    top: 35%;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    width: 80%;
   }
 
   .descrip p {
-    font-family: "Gravity-Regular";
-    font-size: 5vw;
+    font-family: "Gravity-Bold";
+    font-size: 7vw;
     color: white;
+  }
+
+  #sub1, #sub3{
+    display: none;
+  }
+
+  #sub2{
+    color: red;
   }
 
   .backPhoto {
