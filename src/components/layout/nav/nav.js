@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link, navigate }from 'gatsby'
 import { gsap } from 'gsap'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { GlobalStateContext } from '../../../context/GlobalContextProvider'
 
@@ -22,8 +23,6 @@ const Nav = ({siteTitle, location}) => {
     const [scrollYOld, setscrollYOld] = useState(scrollY);
 
     const handleClick = () => {
-        if(transitionNav)
-            return
         setscrollYOld(scrollY)
         if(navOpen)
             setnavOpen(false)
@@ -32,6 +31,8 @@ const Nav = ({siteTitle, location}) => {
     }
 
     const handleClickNav= e =>{
+        setnavOpen(false)
+        return ;
         e.preventDefault()
         window.scroll({top: 0, left: 0, behavior: 'smooth', transition: 'all 3.5s linear' })
         if(transitionNav || stateTransitionPage.on){
@@ -85,47 +86,65 @@ const Nav = ({siteTitle, location}) => {
             return false
         }
     }
+    console.log(location)
 
     return(
-        <nav className={`nav nav-${stateTransitionPage.end} ${ scrollY > 10 && 'affix'}`}>
+        <nav className={`nav nav-${location} ${ scrollY > 10 && 'affix'}`}>
             <div className="navtitle">
-                <Link 
+                <AniLink 
                     className="cursorEffect"
+
+                    cover
+                    bg="#000000"
+                    direction="right"
+                    duration={2}
+
                     to="/" 
                     name="/"
                     //activeStyle={{ cursor: `${transitionNav ? null : 'default'}`}} 
-                    onClick={handleClickNav}
-                >{siteTitle}</Link>
+                >{siteTitle}</AniLink>
             </div>
             <div className={`mainListDiv main_list ${ handleNavOpen() && 'open' }`}>
                 <ul className="navlinks">
                     <li className={`${ navOpen && 'fade'}`} >
-                        <Link
+                        <AniLink
                             className="cursorEffect"
+
+                            swipe
+                            direction="left"
+
                             to="/about/"
                             name="/about/"
                             onClick={handleClickNav}
                             activeClassName="selected"
                         >About Me
-                        </Link>
+                        </AniLink>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
-                        <Link
+                        <AniLink
                             className="cursorEffect"
+
+                            swipe
+                            direction="left"
+
                             to="/software/"
                             name="/software/"
                             onClick={handleClickNav}
                             activeClassName="selected"
-                        >Software</Link>
+                        >Software</AniLink>
                     </li>
                     <li className={`${ navOpen && 'fade'}`}>
-                        <Link 
+                        <AniLink 
                             className="cursorEffect"
+
+                            swipe
+                            direction="left"
+
                             to="/contact/"
                             name="/contact/"
                             onClick={handleClickNav}
                             activeClassName="selected"
-                        >Contact</Link>
+                        >Contact</AniLink>
                     </li>
                 </ul>
             </div>

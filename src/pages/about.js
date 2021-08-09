@@ -4,7 +4,7 @@ import AboutPage from '../components/about/aboutPage'
 import SkillsPage from '../components/about/skillsPage'
 
 
-const About = () => {
+const About = ({ transitionStatus }) => {
 
   const skillRef = useRef()
 

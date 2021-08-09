@@ -9,6 +9,13 @@
 	 background: #3056F2;
 	 * */
   background: #0C0C0C;
+
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-attachment: fixed;
+
 }
 
 .titleSkills{

@@ -12,6 +12,16 @@
   perspective: 700px;
   z-index: 1;
   user-select: none;
+
+  /* new data*/
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-attachment: fixed;
 }
 
 .containerIndex {
